@@ -90,7 +90,7 @@ router.get('/:slug', async (req, res) => {
 // POST /api/projects - Create new project (admin only)
 router.post('/', authenticateToken, async (req, res) => {
   try {
-    const { title, slug, location, category, description, cover_image, tags, completed_date, featured, display_order, images } = req.body;
+    const { title, slug, location, category, meta_description, description, cover_image, tags, completed_date, featured, display_order, images } = req.body;
 
     if (!title || !slug) {
       return res.status(400).json({ error: 'Title and slug are required' });
@@ -103,10 +103,10 @@ router.post('/', authenticateToken, async (req, res) => {
     }
 
     const result = await pool.query(
-      `INSERT INTO projects (title, slug, location, category, description, cover_image, tags, completed_date, featured, display_order)
-       VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)
+      `INSERT INTO projects (title, slug, location, category, meta_description, description, cover_image, tags, completed_date, featured, display_order)
+       VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)
        RETURNING *`,
-      [title, slug, location || '', category || '', description || '', cover_image || '', tags || [], completed_date || '', featured || false, display_order || 0]
+      [title, slug, location || '', category || '', meta_description || '', description || '', cover_image || '', tags || [], completed_date || '', featured || false, display_order || 0]
     );
 
     const project = result.rows[0];
@@ -139,7 +139,7 @@ router.post('/', authenticateToken, async (req, res) => {
 router.put('/:id', authenticateToken, async (req, res) => {
   try {
     const { id } = req.params;
-    const { title, slug, location, category, description, cover_image, tags, completed_date, featured, display_order, images } = req.body;
+    const { title, slug, location, category, meta_description, description, cover_image, tags, completed_date, featured, display_order, images } = req.body;
 
     // Check project exists
     const existing = await pool.query('SELECT * FROM projects WHERE id = $1', [id]);
@@ -161,16 +161,17 @@ router.put('/:id', authenticateToken, async (req, res) => {
         slug = COALESCE($2, slug),
         location = COALESCE($3, location),
         category = COALESCE($4, category),
-        description = COALESCE($5, description),
-        cover_image = COALESCE($6, cover_image),
-        tags = COALESCE($7, tags),
-        completed_date = COALESCE($8, completed_date),
-        featured = COALESCE($9, featured),
-        display_order = COALESCE($10, display_order),
+        meta_description = COALESCE($5, meta_description),
+        description = COALESCE($6, description),
+        cover_image = COALESCE($7, cover_image),
+        tags = COALESCE($8, tags),
+        completed_date = COALESCE($9, completed_date),
+        featured = COALESCE($10, featured),
+        display_order = COALESCE($11, display_order),
         updated_at = CURRENT_TIMESTAMP
-      WHERE id = $11
+      WHERE id = $12
       RETURNING *`,
-      [title, slug, location, category, description, cover_image, tags, completed_date, featured, display_order, id]
+      [title, slug, location, category, meta_description, description, cover_image, tags, completed_date, featured, display_order, id]
     );
 
     const project = result.rows[0];

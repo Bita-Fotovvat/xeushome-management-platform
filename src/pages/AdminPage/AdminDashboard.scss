@@ -256,7 +256,8 @@
     }
 
     label {
-      display: block; font-family: GeneralSans, sans-serif; font-size: 0.75rem;
+      display: flex; align-items: center; justify-content: space-between;
+      font-family: GeneralSans, sans-serif; font-size: 0.75rem;
       font-weight: 600; text-transform: uppercase; letter-spacing: 1px;
       color: #888; margin-bottom: 6px;
     }
@@ -271,6 +272,26 @@
       &::placeholder { color: #ccc; }
     }
     textarea { resize: vertical; min-height: 100px; }
+  }
+
+  &__char-count {
+    font-family: GeneralSans, sans-serif;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0;
+    text-transform: none;
+    color: #bbb;
+    transition: color 0.2s;
+    &--good { color: #4caf50; }
+    &--over  { color: #e53935; font-weight: 700; }
+  }
+
+  &__field-hint {
+    font-family: GeneralSans, sans-serif;
+    font-size: 0.78rem;
+    color: #aaa;
+    margin: -2px 0 8px;
+    line-height: 1.4;
   }
 
   /* UPLOAD AREAS */

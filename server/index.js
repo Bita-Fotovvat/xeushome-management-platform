@@ -9,6 +9,7 @@ const authRoutes = require('./routes/auth');
 const projectRoutes = require('./routes/projects');
 const uploadRoutes = require('./routes/upload');
 const messageRoutes = require('./routes/messages');
+const quotingRoutes = require('./routes/quoting');
 
 const app = express();
 const PORT = process.env.PORT || 5001;
@@ -34,6 +35,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/projects', projectRoutes);
 app.use('/api/upload', uploadRoutes);
 app.use('/api/messages', messageRoutes);
+app.use('/api/quoting', quotingRoutes);
 
 // Health check
 app.get('/api/health', (req, res) => {

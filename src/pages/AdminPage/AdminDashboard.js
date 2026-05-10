@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
+import QuotationApp from "../../QuotationApp";
 import "./AdminDashboard.scss";
 
 const CATEGORIES = [
@@ -36,6 +37,7 @@ export default function AdminDashboard() {
     slug: "",
     location: "",
     category: "",
+    meta_description: "",
     description: "",
     completed_date: "",
     featured: false,
@@ -110,6 +112,7 @@ export default function AdminDashboard() {
       slug: "",
       location: "",
       category: "",
+      meta_description: "",
       description: "",
       completed_date: "",
       featured: false,
@@ -135,6 +138,7 @@ export default function AdminDashboard() {
       slug: project.slug,
       location: project.location || "",
       category: project.category || "",
+      meta_description: project.meta_description || "",
       description: project.description || "",
       completed_date: project.completed_date || "",
       featured: project.featured || false,
@@ -235,6 +239,7 @@ export default function AdminDashboard() {
         slug: form.slug || generateSlug(form.title),
         location: form.location,
         category: form.category,
+        meta_description: form.meta_description,
         description: form.description,
         cover_image: coverUrl,
         tags: form.tags.split(",").map((t) => t.trim()).filter(Boolean),
@@ -355,7 +360,19 @@ export default function AdminDashboard() {
         >
           Customer Inquiries ({inquiries.length})
         </button>
+        <button 
+          className={`admin__tab ${activeTab === 'quoting' ? 'admin__tab--active' : ''}`}
+          onClick={() => { setActiveTab('quoting'); setProjectFormView(false); }}
+        >
+          Quotation Engine
+        </button>
       </div>
+
+      {activeTab === 'quoting' && (
+        <section className="admin__section-content">
+          <QuotationApp token={token} baseUrl={BASE_URL} />
+        </section>
+      )}
 
       {activeTab === 'projects' && (
         <section className="admin__section-content">
@@ -475,11 +492,34 @@ export default function AdminDashboard() {
               </div>
 
               <div className="admin__field admin__field--full">
-                <label>Description</label>
+                <label>
+                  Meta Description
+                  <span className={`admin__char-count ${
+                    form.meta_description.length > 160 ? 'admin__char-count--over'
+                    : form.meta_description.length >= 140 ? 'admin__char-count--good'
+                    : ''
+                  }`}>
+                    {form.meta_description.length}/160
+                  </span>
+                </label>
+                <p className="admin__field-hint">🔍 Shown in Google search results. Aim for 150–160 characters.</p>
+                <textarea
+                  value={form.meta_description}
+                  onChange={(e) => setForm({ ...form, meta_description: e.target.value })}
+                  rows="3"
+                  maxLength={160}
+                  placeholder="Brief summary for Google search results (150–160 characters)..."
+                />
+              </div>
+
+              <div className="admin__field admin__field--full">
+                <label>Full Description</label>
+                <p className="admin__field-hint">📄 The detailed content visitors read on the project page. No character limit.</p>
                 <textarea
                   value={form.description}
                   onChange={(e) => setForm({ ...form, description: e.target.value })}
-                  rows="4"
+                  rows="8"
+                  placeholder="Full detailed description of the project..."
                 />
               </div>
 

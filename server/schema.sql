@@ -15,6 +15,7 @@ CREATE TABLE IF NOT EXISTS projects (
   title VARCHAR(255) NOT NULL,
   location VARCHAR(255),
   category VARCHAR(100),
+  meta_description VARCHAR(160),
   description TEXT,
   cover_image VARCHAR(500),
   tags TEXT[] DEFAULT '{}',
