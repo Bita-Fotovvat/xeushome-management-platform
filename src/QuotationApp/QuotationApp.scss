@@ -1,0 +1,227 @@
+@import "../styles/partials/variables";
+
+$primary-color: $xeus-darkmaroon;
+$accent-golden: $xeus-mediumbeige;
+$accent-light: $button-color;
+
+
+// Base styles for the isolated module
+.quotation-app {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  margin-top: 1rem;
+  overflow: hidden;
+
+  &__header {
+    background-color: #f8f9fa;
+    padding: 1.5rem;
+    border-bottom: 1px solid #e9ecef;
+    
+    h2 {
+      margin: 0;
+      color: $primary-color;
+      font-family: 'Cormorant', serif;
+      font-size: 1.75rem;
+    }
+  }
+
+  &__tabs {
+    display: flex;
+    background: #fff;
+    border-bottom: 2px solid #e9ecef;
+
+    button {
+      flex: 1;
+      background: none;
+      border: none;
+      padding: 1rem;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #6c757d;
+      cursor: pointer;
+      border-bottom: 3px solid transparent;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background-color: #f8f9fa;
+      }
+
+      &.active {
+        color: $accent-golden;
+        border-bottom-color: $accent-golden;
+        background-color: rgba($accent-golden, 0.05);
+      }
+    }
+  }
+
+  &__content {
+    padding: 2rem;
+    min-height: 500px;
+  }
+}
+
+// Global components within the app
+.q-btn {
+  background: $accent-light;
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+
+  &:hover {
+    background: darken($accent-light, 10%);
+  }
+
+  &--outline {
+    background: transparent;
+    border: 2px solid $accent-light;
+    color: $accent-light;
+
+    &:hover {
+      background: $accent-light;
+      color: #fff;
+    }
+  }
+
+  &--danger {
+    background: #dc3545;
+    &:hover { background: darken(#dc3545, 10%); }
+  }
+}
+
+.q-input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  &:focus {
+    outline: none;
+    border-color: $accent-golden;
+  }
+}
+
+.q-select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  background-color: #fff;
+  &:focus {
+    outline: none;
+    border-color: $accent-golden;
+  }
+}
+
+// Tree view styles for Tab 1
+.q-tree {
+  margin-top: 1rem;
+
+  &__node {
+    margin: 0.5rem 0;
+    padding-left: 1.5rem;
+    border-left: 1px dashed #ccc;
+  }
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+    background: #f8f9fa;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+
+    &:hover {
+      background: #e9ecef;
+    }
+  }
+  &__info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  &__name {
+    font-weight: 600;
+  }
+  &__meta {
+    font-size: 0.85rem;
+    color: #666;
+  }
+  &__actions {
+    display: flex;
+    gap: 0.5rem;
+  }
+}
+
+// Form styles for Tab 2
+.q-builder {
+  &__step {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    border-left: 4px solid $accent-golden;
+    
+    h3 {
+      margin-top: 0;
+      font-size: 1.1rem;
+      color: #333;
+    }
+  }
+
+  &__calc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  &__result {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background: rgba($accent-golden, 0.1);
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    strong {
+      font-size: 1.25rem;
+      color: $primary-color;
+    }
+  }
+}
+
+// Styles for Tab 3 (PDF Preview Table)
+.q-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  
+  th, td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #e9ecef;
+  }
+  th {
+    background: #f8f9fa;
+    font-weight: 600;
+    color: #333;
+  }
+  tr:last-child td {
+    border-bottom: none;
+  }
+  
+  &__total {
+    background: rgba($accent-golden, 0.1);
+    td {
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+  }
+}
