@@ -7,6 +7,7 @@ import EmailIcon from "../../assets/icons/email.png";
 import "./ContactPage.scss";
 
 export default function ContactPage() {
+    // eslint-disable-next-line no-unused-vars
     const navigate = useNavigate();
     const [loading, setLoading] = useState(false);
     const [formData, setFormData] = useState({
