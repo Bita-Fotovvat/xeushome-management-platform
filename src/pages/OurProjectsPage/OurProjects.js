@@ -27,10 +27,17 @@ export default function OurProjectsPage() {
       const baseUrl =
         process.env.NODE_ENV === "production" ? "https://renovation-website-pdnn.onrender.com" : "http://localhost:5001";
       const res = await fetch(`${baseUrl}/api/projects`);
+
+      if (!res.ok) {
+        throw new Error(`Server responded with ${res.status}`);
+      }
+
       const data = await res.json();
-      setProjects(data);
+      // Guard: ensure we always set an array
+      setProjects(Array.isArray(data) ? data : []);
     } catch (err) {
       console.error("Failed to fetch projects:", err);
+      setProjects([]);
     } finally {
       setLoading(false);
     }

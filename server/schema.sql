@@ -54,3 +54,46 @@ CREATE TABLE IF NOT EXISTS messages (
   created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
 
+-- ============================================================
+-- Row-Level Security (RLS)
+-- Wrapped in DO blocks so re-running on server restart is safe.
+-- ============================================================
+
+-- users: completely locked down (service_role only via server)
+ALTER TABLE users ENABLE ROW LEVEL SECURITY;
+
+-- projects: public read, no public write
+ALTER TABLE projects ENABLE ROW LEVEL SECURITY;
+DO $$
+BEGIN
+  IF NOT EXISTS (
+    SELECT 1 FROM pg_policies WHERE tablename = 'projects' AND policyname = 'Public can read projects'
+  ) THEN
+    CREATE POLICY "Public can read projects"
+      ON projects FOR SELECT TO anon, authenticated USING (true);
+  END IF;
+END $$;
+
+-- project_images: public read, no public write
+ALTER TABLE project_images ENABLE ROW LEVEL SECURITY;
+DO $$
+BEGIN
+  IF NOT EXISTS (
+    SELECT 1 FROM pg_policies WHERE tablename = 'project_images' AND policyname = 'Public can read project images'
+  ) THEN
+    CREATE POLICY "Public can read project images"
+      ON project_images FOR SELECT TO anon, authenticated USING (true);
+  END IF;
+END $$;
+
+-- messages: public insert only (contact form), no public read
+ALTER TABLE messages ENABLE ROW LEVEL SECURITY;
+DO $$
+BEGIN
+  IF NOT EXISTS (
+    SELECT 1 FROM pg_policies WHERE tablename = 'messages' AND policyname = 'Public can submit contact messages'
+  ) THEN
+    CREATE POLICY "Public can submit contact messages"
+      ON messages FOR INSERT TO anon WITH CHECK (true);
+  END IF;
+END $$;
