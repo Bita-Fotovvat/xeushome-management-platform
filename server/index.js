@@ -42,6 +42,69 @@ app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', timestamp: new Date().toISOString() });
 });
 
+// Dynamic sitemap.xml - includes all project pages from DB
+app.get('/sitemap.xml', async (req, res) => {
+  try {
+    const result = await pool.query(
+      'SELECT slug, updated_at FROM projects ORDER BY display_order ASC, created_at DESC'
+    );
+
+    const today = new Date().toISOString().split('T')[0];
+
+    let xml = '<?xml version="1.0" encoding="UTF-8"?>\n';
+    xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
+
+    // Static pages
+    xml += `  <url>
+    <loc>https://xeushome.ca/</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>\n`;
+
+    xml += `  <url>
+    <loc>https://xeushome.ca/our-projects</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>\n`;
+
+    xml += `  <url>
+    <loc>https://xeushome.ca/about-us</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>\n`;
+
+    xml += `  <url>
+    <loc>https://xeushome.ca/contact-us</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>\n`;
+
+    // Dynamic project pages
+    for (const project of result.rows) {
+      const lastmod = project.updated_at
+        ? new Date(project.updated_at).toISOString().split('T')[0]
+        : today;
+
+      xml += `  <url>
+    <loc>https://xeushome.ca/our-projects/${project.slug}</loc>
+    <lastmod>${lastmod}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>\n`;
+    }
+
+    xml += '</urlset>';
+
+    res.set('Content-Type', 'application/xml');
+    res.send(xml);
+  } catch (err) {
+    console.error('Error generating sitemap:', err);
+    res.status(500).send('Failed to generate sitemap');
+  }
+});
+
 // In production, serve the React build
 if (process.env.NODE_ENV === 'production') {
   const buildPath = path.join(__dirname, '..', 'build');
