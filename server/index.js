@@ -76,10 +76,32 @@ app.get('/sitemap.xml', async (req, res) => {
   </url>\n`;
 
     xml += `  <url>
+    <loc>https://xeushome.ca/blog</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>\n`;
+
+    xml += `  <url>
     <loc>https://xeushome.ca/contact-us</loc>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>\n`;
+
+    // Blog article pages
+    const blogSlugs = [
+      'how-to-choose-renovation-contractor-hamilton-gta',
+      'what-to-expect-during-home-renovation-ontario'
+    ];
+
+    for (const blogSlug of blogSlugs) {
+      xml += `  <url>
+    <loc>https://xeushome.ca/blog/${blogSlug}</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>\n`;
+    }
 
     // Dynamic project pages
     for (const project of result.rows) {

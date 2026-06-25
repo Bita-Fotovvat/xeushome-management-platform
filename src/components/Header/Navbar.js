@@ -21,6 +21,10 @@ export default function Navbar({open}){
                     navigate("/about-us");
                     setActiveLink('/about-us')}}>About Us
                 </li>
+                <li className={`navbar__list--item ${activeLink === '/blog' ? 'navbaractive':''}`} onClick={()=>{
+                    navigate("/blog");
+                    setActiveLink('/blog')}}>Blog
+                </li>
                 <li className={`navbar__list--item ${activeLink === '/contact-us' ? 'navbaractive':''}`} onClick={()=>{
                     navigate("/contact-us");
                     setActiveLink('/contact-us')}}>Contact Us

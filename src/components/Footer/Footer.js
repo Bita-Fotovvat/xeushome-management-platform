@@ -32,6 +32,7 @@ export default function Footer() {
                         <li onClick={() => navigate("/")}>Home</li>
                         <li onClick={() => navigate("/our-projects")}>Our Projects</li>
                         <li onClick={() => navigate("/about-us")}>About Us</li>
+                        <li onClick={() => navigate("/blog")}>Blog</li>
                         <li onClick={() => navigate("/contact-us")}>Contact Us</li>
                     </ul>
                 </div>

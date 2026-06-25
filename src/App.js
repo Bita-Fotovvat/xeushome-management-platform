@@ -8,6 +8,8 @@ import AboutUsPage from "./pages/AboutUsPage/AboutUsPage";
 import ContactPage from "./pages/ContactPage/ContactPage";
 import OurProjectsPage from './pages/OurProjectsPage/OurProjects';
 import ProjectDetailPage from './pages/ProjectDetailPage/ProjectDetailPage';
+import BlogPage from './pages/BlogPage/BlogPage';
+import BlogDetailPage from './pages/BlogDetailPage/BlogDetailPage';
 import AdminLogin from './pages/AdminPage/AdminLogin';
 import AdminDashboard from './pages/AdminPage/AdminDashboard';
 import Footer from "./components/Footer/Footer";
@@ -106,7 +108,9 @@ function App() {
           <Route path="/our-projects/oakville-project-no.2" element={<LegacyRedirect />} />
           <Route path="/our-projects/toronto-project-no.2" element={<LegacyRedirect />} />
 
-          <Route path="/about-us" element={<AboutUsPage/>} /> 
+          <Route path="/about-us" element={<AboutUsPage/>} />
+          <Route path="/blog" element={<BlogPage/>} />
+          <Route path="/blog/:slug" element={<BlogDetailPage/>} />
           <Route path="/contact-us" element={<ContactPage/>} />
           
           {/* Admin routes (hidden) */}
