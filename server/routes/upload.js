@@ -1,26 +1,25 @@
 const express = require('express');
 const multer = require('multer');
-const path = require('path');
-const fs = require('fs');
-const crypto = require('crypto');
+const { v2: cloudinary } = require('cloudinary');
+const { CloudinaryStorage } = require('multer-storage-cloudinary');
 const { authenticateToken } = require('../middleware/auth');
 
 const router = express.Router();
 
-// Ensure uploads directory exists
-const uploadsDir = path.join(__dirname, '..', '..', 'uploads');
-if (!fs.existsSync(uploadsDir)) {
-  fs.mkdirSync(uploadsDir, { recursive: true });
-}
+// Configure Cloudinary
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+});
 
-// Configure multer for file uploads
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, uploadsDir);
-  },
-  filename: (req, file, cb) => {
-    const uniqueName = `${crypto.randomUUID()}${path.extname(file.originalname)}`;
-    cb(null, uniqueName);
+// Configure multer with Cloudinary storage
+const storage = new CloudinaryStorage({
+  cloudinary,
+  params: {
+    folder: 'xeushome',
+    allowed_formats: ['jpg', 'jpeg', 'png', 'webp', 'gif'],
+    transformation: [{ quality: 'auto', fetch_format: 'auto' }],
   },
 });
 
@@ -46,10 +45,9 @@ router.post('/', authenticateToken, upload.single('image'), (req, res) => {
       return res.status(400).json({ error: 'No image file provided' });
     }
 
-    const imageUrl = `/uploads/${req.file.filename}`;
     res.status(201).json({
       message: 'Image uploaded successfully',
-      image_url: imageUrl,
+      image_url: req.file.path,
       filename: req.file.filename,
       originalname: req.file.originalname,
       size: req.file.size,
@@ -68,7 +66,7 @@ router.post('/multiple', authenticateToken, upload.array('images', 20), (req, re
     }
 
     const uploadedFiles = req.files.map((file) => ({
-      image_url: `/uploads/${file.filename}`,
+      image_url: file.path,
       filename: file.filename,
       originalname: file.originalname,
       size: file.size,
@@ -88,14 +86,16 @@ router.post('/multiple', authenticateToken, upload.array('images', 20), (req, re
 router.delete('/:filename', authenticateToken, (req, res) => {
   try {
     const { filename } = req.params;
-    const filePath = path.join(uploadsDir, filename);
+    // Cloudinary public_id is stored as the filename (without extension)
+    const publicId = `xeushome/${filename.replace(/\.[^/.]+$/, '')}`;
 
-    if (!fs.existsSync(filePath)) {
-      return res.status(404).json({ error: 'File not found' });
-    }
-
-    fs.unlinkSync(filePath);
-    res.json({ message: 'Image deleted successfully' });
+    cloudinary.uploader.destroy(publicId, (error, result) => {
+      if (error) {
+        console.error('Cloudinary delete error:', error);
+        return res.status(500).json({ error: 'Failed to delete image' });
+      }
+      res.json({ message: 'Image deleted successfully' });
+    });
   } catch (err) {
     console.error('Delete error:', err);
     res.status(500).json({ error: 'Failed to delete image' });
