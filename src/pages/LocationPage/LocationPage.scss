@@ -1,0 +1,319 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.location-page {
+  background-color: #faf8f5;
+
+  /* Not found */
+  &__not-found {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+    text-align: center;
+    gap: 1rem;
+
+    h2 {
+      font-family: Cormorant, serif;
+      font-size: 2rem;
+      color: $text-darkgray;
+    }
+
+    p {
+      font-family: GeneralSans, sans-serif;
+      color: #999;
+    }
+
+    button {
+      padding: 10px 28px;
+      background: $xeus-darkmaroon;
+      color: $xeus-lightbeige;
+      border: none;
+      border-radius: 100px;
+      font-family: GeneralSans, sans-serif;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: background 0.3s;
+
+      &:hover { background: darken(#2f020c, 5%); }
+    }
+  }
+}
+
+/* Hero */
+.location-hero {
+  position: relative;
+  height: 55vh;
+  min-height: 400px;
+  background-color: $xeus-darkmaroon;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(47, 2, 12, 0.5) 0%, rgba(47, 2, 12, 0.85) 100%);
+  }
+
+  &__content {
+    position: relative;
+    z-index: 2;
+    padding: 0 1.5rem;
+    animation: locationFadeIn 1s ease-out;
+  }
+
+  &__label {
+    display: block;
+    font-family: GeneralSans, sans-serif;
+    color: $xeus-mediumbeige;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+  }
+
+  &__title {
+    font-family: Cormorant, serif;
+    font-size: 3rem;
+    color: $xeus-lightbeige;
+    font-weight: 300;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+
+    @include tablet-and-desktop { font-size: 4.2rem; }
+  }
+
+  &__divider {
+    width: 80px;
+    height: 2px;
+    background: $xeus-mediumbeige;
+    margin: 0 auto;
+  }
+}
+
+/* Intro */
+.location-intro {
+  padding: 5rem 0;
+  text-align: center;
+
+  @include tablet-and-desktop { padding: 7rem 0; }
+
+  &__container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  &__label {
+    display: inline-block;
+    font-family: GeneralSans, sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #999;
+    margin-bottom: 1rem;
+  }
+
+  &__title {
+    font-family: Cormorant, serif;
+    font-size: 2.5rem;
+    font-weight: 600;
+    line-height: 1.1;
+    color: $text-darkgray;
+    margin-bottom: 2rem;
+
+    @include tablet-and-desktop { font-size: 3.2rem; }
+  }
+
+  &__text {
+    font-family: GeneralSans, sans-serif;
+    font-size: 1.08rem;
+    line-height: 1.85;
+    color: #666;
+  }
+}
+
+/* Service Sections */
+.location-section {
+  padding: 4rem 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.04);
+
+  &--alt {
+    background: #fff;
+  }
+
+  @include tablet-and-desktop { padding: 5rem 0; }
+
+  &__container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  &__heading {
+    font-family: Cormorant, serif;
+    font-size: 2rem;
+    font-weight: 600;
+    color: $text-darkgray;
+    margin-bottom: 1.25rem;
+
+    @include tablet-and-desktop { font-size: 2.4rem; }
+  }
+
+  &__text {
+    font-family: GeneralSans, sans-serif;
+    font-size: 1.02rem;
+    line-height: 1.8;
+    color: #666;
+    margin-bottom: 1.5rem;
+  }
+
+  &__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+
+    @include tablet-and-desktop {
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem 2rem;
+    }
+
+    li {
+      font-family: GeneralSans, sans-serif;
+      font-size: 0.98rem;
+      line-height: 1.6;
+      color: #555;
+      padding-left: 1.75rem;
+      position: relative;
+
+      &::before {
+        content: '✓';
+        position: absolute;
+        left: 0;
+        top: 0;
+        color: $xeus-mediumbeige;
+        font-weight: bold;
+        font-size: 1.1rem;
+      }
+    }
+  }
+}
+
+/* Portfolio CTA */
+.location-portfolio {
+  padding: 5rem 0;
+  text-align: center;
+  background: #fff;
+  border-top: 1px solid rgba(0, 0, 0, 0.04);
+
+  &__container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+
+    h2 {
+      font-family: Cormorant, serif;
+      font-size: 2.2rem;
+      font-weight: 600;
+      color: $text-darkgray;
+      margin-bottom: 1rem;
+
+      @include tablet-and-desktop { font-size: 2.8rem; }
+    }
+
+    p {
+      font-family: GeneralSans, sans-serif;
+      font-size: 1.02rem;
+      line-height: 1.7;
+      color: #888;
+      margin-bottom: 2rem;
+    }
+  }
+
+  &__btn {
+    padding: 14px 36px;
+    font-family: GeneralSans, sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &--outline {
+      background: transparent;
+      color: $xeus-darkmaroon;
+      border: 2px solid $xeus-darkmaroon;
+
+      &:hover {
+        background: $xeus-darkmaroon;
+        color: $xeus-lightbeige;
+      }
+    }
+  }
+}
+
+/* CTA */
+.location-cta {
+  background: $xeus-darkmaroon;
+  padding: 5rem 1.5rem;
+  text-align: center;
+
+  @include tablet-and-desktop { padding: 6rem 1.5rem; }
+
+  &__container {
+    max-width: 650px;
+    margin: 0 auto;
+
+    h2 {
+      font-family: Cormorant, serif;
+      font-size: 2.5rem;
+      color: $xeus-lightbeige;
+      margin-bottom: 1rem;
+
+      @include tablet-and-desktop { font-size: 3.2rem; }
+    }
+
+    p {
+      font-family: GeneralSans, sans-serif;
+      font-size: 1.05rem;
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 2.5rem;
+      line-height: 1.7;
+    }
+  }
+
+  &__btn {
+    padding: 16px 44px;
+    background: $xeus-mediumbeige;
+    color: $xeus-darkmaroon;
+    font-family: GeneralSans, sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: lighten($xeus-mediumbeige, 10%);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+    }
+  }
+}
+
+@keyframes locationFadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}

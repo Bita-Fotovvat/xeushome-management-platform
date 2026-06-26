@@ -10,6 +10,7 @@ import OurProjectsPage from './pages/OurProjectsPage/OurProjects';
 import ProjectDetailPage from './pages/ProjectDetailPage/ProjectDetailPage';
 import BlogPage from './pages/BlogPage/BlogPage';
 import BlogDetailPage from './pages/BlogDetailPage/BlogDetailPage';
+import LocationPage from './pages/LocationPage/LocationPage';
 import AdminLogin from './pages/AdminPage/AdminLogin';
 import AdminDashboard from './pages/AdminPage/AdminDashboard';
 import Footer from "./components/Footer/Footer";
@@ -111,6 +112,7 @@ function App() {
           <Route path="/about-us" element={<AboutUsPage/>} />
           <Route path="/blog" element={<BlogPage/>} />
           <Route path="/blog/:slug" element={<BlogDetailPage/>} />
+          <Route path="/services/:slug" element={<LocationPage/>} />
           <Route path="/contact-us" element={<ContactPage/>} />
           
           {/* Admin routes (hidden) */}

@@ -10,6 +10,7 @@ const projectRoutes = require('./routes/projects');
 const uploadRoutes = require('./routes/upload');
 const messageRoutes = require('./routes/messages');
 const quotingRoutes = require('./routes/quoting');
+const { getMetaForPath, injectMeta, LOCATION_PAGES } = require('./seoPrerender');
 
 const app = express();
 const PORT = process.env.PORT || 5001;
@@ -103,6 +104,16 @@ app.get('/sitemap.xml', async (req, res) => {
   </url>\n`;
     }
 
+    // Location landing pages
+    for (const locSlug of Object.keys(LOCATION_PAGES)) {
+      xml += `  <url>
+    <loc>https://xeushome.ca/services/${locSlug}</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>\n`;
+    }
+
     // Dynamic project pages
     for (const project of result.rows) {
       const lastmod = project.updated_at
@@ -127,14 +138,36 @@ app.get('/sitemap.xml', async (req, res) => {
   }
 });
 
-// In production, serve the React build
+// In production, serve the React build with SEO pre-rendering
 if (process.env.NODE_ENV === 'production') {
   const buildPath = path.join(__dirname, '..', 'build');
   app.use(express.static(buildPath));
 
-  // All non-API routes serve the React app
-  app.get('*', (req, res) => {
-    if (!req.path.startsWith('/api')) {
+  // All non-API routes serve the React app with injected meta tags
+  app.get('*', async (req, res) => {
+    if (req.path.startsWith('/api')) return;
+
+    try {
+      const htmlPath = path.join(buildPath, 'index.html');
+      let html = fs.readFileSync(htmlPath, 'utf8');
+
+      // Check if this is a project detail page — fetch meta from DB
+      const projectMatch = req.path.match(/^\/our-projects\/(.+)$/);
+      let projectRow = null;
+      if (projectMatch) {
+        const result = await pool.query(
+          'SELECT title, slug, meta_description, description, cover_image FROM projects WHERE slug = $1',
+          [projectMatch[1]]
+        );
+        if (result.rows.length > 0) projectRow = result.rows[0];
+      }
+
+      const meta = getMetaForPath(req.path, projectRow);
+      html = injectMeta(html, meta);
+
+      res.send(html);
+    } catch (err) {
+      console.error('Error serving page:', err);
       res.sendFile(path.join(buildPath, 'index.html'));
     }
   });
