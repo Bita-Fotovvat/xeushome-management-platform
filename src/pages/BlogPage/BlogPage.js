@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import blogArticles from "../../data/blogArticles";
+import Breadcrumbs from "../../components/Breadcrumbs/Breadcrumbs";
 import "./BlogPage.scss";
 
 import heroImg from "../../assets/images/blog/kitchen-white-gold.png";
@@ -21,6 +22,14 @@ export default function BlogPage() {
         <meta property="og:description" content="Renovation tips, guides, and expert advice from Xeus Home." />
         <meta property="og:url" content="https://xeushome.ca/blog" />
         <link rel="canonical" href="https://xeushome.ca/blog" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://xeushome.ca" },
+            { "@type": "ListItem", "position": 2, "name": "Blog" },
+          ],
+        })}</script>
       </Helmet>
 
       {/* Hero Section */}
@@ -35,6 +44,8 @@ export default function BlogPage() {
           <div className="blog-hero__divider"></div>
         </div>
       </section>
+
+      <Breadcrumbs items={[{ label: "Blog" }]} />
 
       {/* Articles Grid */}
       <section className="blog-grid">

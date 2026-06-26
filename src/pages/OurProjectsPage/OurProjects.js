@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import ProjectCard from "../../components/ProjectCard/ProjectCard";
+import Breadcrumbs from "../../components/Breadcrumbs/Breadcrumbs";
 import "./OurProjects.scss";
 
 const CATEGORIES = [
@@ -53,6 +54,15 @@ export default function OurProjectsPage() {
       <Helmet>
         <title>Our Projects | Xeus Home</title>
         <meta name="description" content="Explore our portfolio of premium full home, kitchen, bathroom, and basement renovations." />
+        <link rel="canonical" href="https://xeushome.ca/our-projects" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://xeushome.ca" },
+            { "@type": "ListItem", "position": 2, "name": "Our Projects" },
+          ],
+        })}</script>
       </Helmet>
 
       {/* Hero Section */}
@@ -68,6 +78,8 @@ export default function OurProjectsPage() {
           <div className="projects-hero__divider"></div>
         </div>
       </section>
+
+      <Breadcrumbs items={[{ label: "Our Projects" }]} />
 
       {/* Filter Bar */}
       <section className="projects-filter">

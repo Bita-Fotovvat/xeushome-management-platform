@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import OurTeam from "../../assets/images/aboutus1.png";
 import WhyHireUs from "../../assets/images/whyhireus.png";
+import Breadcrumbs from "../../components/Breadcrumbs/Breadcrumbs";
 import "./AboutUsPage.scss";
 
 export default function AboutUsPage() {
@@ -12,6 +13,15 @@ export default function AboutUsPage() {
             <Helmet>
                 <title>About Us | Xeus Home</title>
                 <meta name="description" content="Meet the specialized core team and trusted network of skilled trades leading Xeus Home renovations." />
+                <link rel="canonical" href="https://xeushome.ca/about-us" />
+                <script type="application/ld+json">{JSON.stringify({
+                    "@context": "https://schema.org",
+                    "@type": "BreadcrumbList",
+                    "itemListElement": [
+                        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://xeushome.ca" },
+                        { "@type": "ListItem", "position": 2, "name": "About Us" },
+                    ],
+                })}</script>
             </Helmet>
             {/* Hero Section */}
             <section className="about-hero">
@@ -22,6 +32,8 @@ export default function AboutUsPage() {
                     <div className="about-hero__divider"></div>
                 </div>
             </section>
+
+            <Breadcrumbs items={[{ label: "About Us" }]} />
 
             {/* What We Do Section */}
             <section className="about-section about-section--padded">

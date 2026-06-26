@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import Lightbox from "../../components/Lightbox/Lightbox";
 import ProjectCard from "../../components/ProjectCard/ProjectCard";
+import Breadcrumbs from "../../components/Breadcrumbs/Breadcrumbs";
 import "./ProjectDetailPage.scss";
 
 export default function ProjectDetailPage() {
@@ -102,6 +103,16 @@ export default function ProjectDetailPage() {
         <meta name="twitter:title" content={`${project.title} | Xeus Home`} />
         <meta name="twitter:description" content={project.meta_description || (project.description ? project.description.slice(0, 160) : `${project.title} - A ${project.category} project by Xeus Home.`)} />
         <meta name="twitter:image" content={getImageUrl(project.cover_image)} />
+        <link rel="canonical" href={`https://xeushome.ca/our-projects/${projectSlug}`} />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://xeushome.ca" },
+            { "@type": "ListItem", "position": 2, "name": "Our Projects", "item": "https://xeushome.ca/our-projects" },
+            { "@type": "ListItem", "position": 3, "name": project.title },
+          ],
+        })}</script>
       </Helmet>
       {/* Hero */}
       <section className="project-detail__hero">
@@ -146,6 +157,11 @@ export default function ProjectDetailPage() {
           </p>
         </div>
       </section>
+
+      <Breadcrumbs items={[
+        { label: "Our Projects", to: "/our-projects" },
+        { label: project.title },
+      ]} />
 
       {/* Project Info */}
       <section className="project-detail__info">

@@ -4,6 +4,7 @@ import { toast } from 'react-toastify';
 import { useNavigate } from "react-router-dom";
 import PhoneIcon from "../../assets/icons/phone.png";
 import EmailIcon from "../../assets/icons/email.png";
+import Breadcrumbs from "../../components/Breadcrumbs/Breadcrumbs";
 import "./ContactPage.scss";
 
 export default function ContactPage() {
@@ -70,6 +71,15 @@ export default function ContactPage() {
             <Helmet>
                 <title>Contact Us | Xeus Home</title>
                 <meta name="description" content="Get in touch with Xeus Home to start your premium renovation journey today." />
+                <link rel="canonical" href="https://xeushome.ca/contact-us" />
+                <script type="application/ld+json">{JSON.stringify({
+                    "@context": "https://schema.org",
+                    "@type": "BreadcrumbList",
+                    "itemListElement": [
+                        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://xeushome.ca" },
+                        { "@type": "ListItem", "position": 2, "name": "Contact Us" },
+                    ],
+                })}</script>
             </Helmet>
 
             <section className="contact-page__hero">
@@ -83,6 +93,8 @@ export default function ContactPage() {
                     <div className="contact-page__divider"></div>
                 </div>
             </section>
+
+            <Breadcrumbs items={[{ label: "Contact Us" }]} />
 
             <section className="contact-page__wrapper">
                 {/* Form Section */}

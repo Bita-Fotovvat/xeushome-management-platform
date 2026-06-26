@@ -13,27 +13,27 @@ const STATIC_PAGES = {
   '/': {
     title: 'Xeus Home | Premium Renovations',
     description: 'Xeus Home offers premium full home, kitchen, bathroom, and basement renovations. Managed by our dedicated core team and a trusted network of skilled trades.',
-    ogImage: 'https://xeushome.ca/og-image.png',
+    ogImage: 'https://xeushome.ca/og-image.jpg',
   },
   '/our-projects': {
     title: 'Our Projects | Xeus Home',
     description: 'Explore our portfolio of premium full home, kitchen, bathroom, and basement renovations across Hamilton, Burlington, Oakville, Mississauga, and the GTA.',
-    ogImage: 'https://xeushome.ca/og-image.png',
+    ogImage: 'https://xeushome.ca/og-image.jpg',
   },
   '/about-us': {
     title: 'About Us | Xeus Home',
     description: 'Meet the specialized core team and trusted network of skilled trades leading Xeus Home renovations across Ontario.',
-    ogImage: 'https://xeushome.ca/og-image.png',
+    ogImage: 'https://xeushome.ca/og-image.jpg',
   },
   '/contact-us': {
     title: 'Contact Us | Xeus Home',
     description: 'Get in touch with Xeus Home for a free renovation consultation. Serving Hamilton, Burlington, Oakville, Mississauga, Milton, St. Catharines, and the GTA.',
-    ogImage: 'https://xeushome.ca/og-image.png',
+    ogImage: 'https://xeushome.ca/og-image.jpg',
   },
   '/blog': {
     title: 'Blog | Xeus Home',
     description: 'Renovation tips, guides, and expert advice from Xeus Home. Learn how to plan your renovation, choose the right contractor, and transform your home in Hamilton, Burlington, Mississauga, and the GTA.',
-    ogImage: 'https://xeushome.ca/og-image.png',
+    ogImage: 'https://xeushome.ca/og-image.jpg',
   },
 };
 
@@ -92,7 +92,7 @@ function getMetaForPath(reqPath, projectRow) {
   if (blogMatch && BLOG_ARTICLES[blogMatch[1]]) {
     return {
       ...BLOG_ARTICLES[blogMatch[1]],
-      ogImage: 'https://xeushome.ca/og-image.png',
+      ogImage: 'https://xeushome.ca/og-image.jpg',
       url: `https://xeushome.ca${reqPath}`,
     };
   }
@@ -102,7 +102,7 @@ function getMetaForPath(reqPath, projectRow) {
   if (locMatch && LOCATION_PAGES[locMatch[1]]) {
     return {
       ...LOCATION_PAGES[locMatch[1]],
-      ogImage: 'https://xeushome.ca/og-image.png',
+      ogImage: 'https://xeushome.ca/og-image.jpg',
       url: `https://xeushome.ca${reqPath}`,
     };
   }
@@ -113,7 +113,7 @@ function getMetaForPath(reqPath, projectRow) {
     return {
       title: `${projectRow.title} | Xeus Home`,
       description: desc,
-      ogImage: projectRow.cover_image ? (projectRow.cover_image.startsWith('http') ? projectRow.cover_image : `https://renovation-website-pdnn.onrender.com${projectRow.cover_image}`) : 'https://xeushome.ca/og-image.png',
+      ogImage: projectRow.cover_image ? (projectRow.cover_image.startsWith('http') ? projectRow.cover_image : `https://renovation-website-pdnn.onrender.com${projectRow.cover_image}`) : 'https://xeushome.ca/og-image.jpg',
       url: `https://xeushome.ca/our-projects/${projectRow.slug}`,
     };
   }

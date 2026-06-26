@@ -1,0 +1,44 @@
+@use "../../styles/partials/variables" as *;
+
+.breadcrumbs {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem 0;
+
+  &__list {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    font-family: GeneralSans, sans-serif;
+    font-size: 0.78rem;
+  }
+
+  &__separator {
+    margin: 0 8px;
+    color: #ccc;
+  }
+
+  &__link {
+    color: $xeus-darkmaroon;
+    text-decoration: none;
+    opacity: 0.65;
+    transition: opacity 0.2s;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  &__current {
+    color: #999;
+  }
+}

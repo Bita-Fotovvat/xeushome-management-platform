@@ -1,6 +1,7 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import blogArticles from "../../data/blogArticles";
+import Breadcrumbs from "../../components/Breadcrumbs/Breadcrumbs";
 import "./BlogDetailPage.scss";
 
 import kitchenWhiteGold from "../../assets/images/blog/kitchen-white-gold.png";
@@ -134,6 +135,25 @@ export default function BlogDetailPage() {
         <meta name="twitter:title" content={article.seoTitle} />
         <meta name="twitter:description" content={article.metaDescription} />
         <link rel="canonical" href={`https://xeushome.ca/blog/${article.slug}`} />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Article",
+          "headline": article.seoTitle,
+          "description": article.metaDescription,
+          "datePublished": article.publishedDate,
+          "author": { "@type": "Organization", "name": "Xeus Home", "url": "https://xeushome.ca" },
+          "publisher": { "@type": "Organization", "name": "Xeus Home", "logo": { "@type": "ImageObject", "url": "https://xeushome.ca/og-image.jpg" } },
+          "mainEntityOfPage": `https://xeushome.ca/blog/${article.slug}`,
+        })}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://xeushome.ca" },
+            { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://xeushome.ca/blog" },
+            { "@type": "ListItem", "position": 3, "name": article.title },
+          ],
+        })}</script>
       </Helmet>
 
       {/* Hero */}
@@ -165,6 +185,11 @@ export default function BlogDetailPage() {
           </span>
         </div>
       </section>
+
+      <Breadcrumbs items={[
+        { label: "Blog", to: "/blog" },
+        { label: article.title },
+      ]} />
 
       {/* Article Body */}
       <article className="blog-detail__body">
