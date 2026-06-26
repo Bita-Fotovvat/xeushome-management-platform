@@ -42,6 +42,15 @@ export default function ProjectDetailPage() {
     return `${baseUrl}${url}`;
   };
 
+  const getEmbedUrl = (url) => {
+    if (!url) return '';
+    const ytMatch = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([a-zA-Z0-9_-]{11})/);
+    if (ytMatch) return `https://www.youtube.com/embed/${ytMatch[1]}`;
+    const vimeoMatch = url.match(/vimeo\.com\/(\d+)/);
+    if (vimeoMatch) return `https://player.vimeo.com/video/${vimeoMatch[1]}`;
+    return url;
+  };
+
   const openLightbox = (index) => {
     setLightboxIndex(index);
     setLightboxOpen(true);
@@ -178,6 +187,22 @@ export default function ProjectDetailPage() {
           </div>
         </div>
       </section>
+
+      {/* Video */}
+      {project.video_url && (
+        <section className="project-detail__video">
+          <h2 className="project-detail__video-title">Project Video</h2>
+          <div className="project-detail__video-wrapper">
+            <iframe
+              src={getEmbedUrl(project.video_url)}
+              title={`${project.title} video`}
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+          </div>
+        </section>
+      )}
 
       {/* Gallery */}
       <section className="project-detail__gallery">

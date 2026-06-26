@@ -337,6 +337,25 @@
     background: $xeus-darkmaroon; color: $xeus-lightbeige;
   }
 
+  &__video-preview {
+    margin-top: 1rem;
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    border-radius: 8px;
+    max-width: 480px;
+
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  }
+
   &__form-actions {
     display: flex; gap: 1rem; justify-content: flex-end; padding-top: 2rem; border-top: 1px solid rgba(0, 0, 0, 0.06);
   }

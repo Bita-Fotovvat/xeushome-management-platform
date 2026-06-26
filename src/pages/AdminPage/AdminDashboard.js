@@ -43,6 +43,7 @@ export default function AdminDashboard() {
     featured: false,
     display_order: 0,
     tags: "",
+    video_url: "",
   });
   const [coverImage, setCoverImage] = useState(null);
   const [coverPreview, setCoverPreview] = useState("");
@@ -118,6 +119,7 @@ export default function AdminDashboard() {
       featured: false,
       display_order: 0,
       tags: "",
+      video_url: "",
     });
     setCoverImage(null);
     setCoverPreview("");
@@ -144,6 +146,7 @@ export default function AdminDashboard() {
       featured: project.featured || false,
       display_order: project.display_order || 0,
       tags: (project.tags || []).join(", "),
+      video_url: project.video_url || "",
     });
     setCoverPreview(project.cover_image ? getImageUrl(project.cover_image) : "");
     setExistingImages(project.images || []);
@@ -242,6 +245,7 @@ export default function AdminDashboard() {
         meta_description: form.meta_description,
         description: form.description,
         cover_image: coverUrl,
+        video_url: form.video_url || "",
         tags: form.tags.split(",").map((t) => t.trim()).filter(Boolean),
         completed_date: form.completed_date,
         featured: form.featured,
@@ -310,6 +314,17 @@ export default function AdminDashboard() {
 
 
   /* ----- UTIL ----- */
+  const getEmbedUrl = (url) => {
+    if (!url) return '';
+    // YouTube: various formats
+    const ytMatch = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([a-zA-Z0-9_-]{11})/);
+    if (ytMatch) return `https://www.youtube.com/embed/${ytMatch[1]}`;
+    // Vimeo
+    const vimeoMatch = url.match(/vimeo\.com\/(\d+)/);
+    if (vimeoMatch) return `https://player.vimeo.com/video/${vimeoMatch[1]}`;
+    return url;
+  };
+
   const getImageUrl = (url) => {
     if (!url) return "";
     if (url.startsWith("http")) return url;
@@ -585,6 +600,30 @@ export default function AdminDashboard() {
                   <input type="file" accept="image/*" multiple onChange={handleGalleryChange} hidden />
                   + Add Gallery Images
                 </label>
+              </div>
+
+              <div className="admin__section">
+                <h3>Project Video</h3>
+                <p className="admin__field-hint">Paste a YouTube or Vimeo URL to embed a video on the project page.</p>
+                <div className="admin__field">
+                  <input
+                    type="url"
+                    value={form.video_url}
+                    onChange={(e) => setForm({ ...form, video_url: e.target.value })}
+                    placeholder="https://www.youtube.com/watch?v=..."
+                  />
+                </div>
+                {form.video_url && (
+                  <div className="admin__video-preview">
+                    <iframe
+                      src={getEmbedUrl(form.video_url)}
+                      title="Video preview"
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    ></iframe>
+                  </div>
+                )}
               </div>
 
               <div className="admin__form-actions">

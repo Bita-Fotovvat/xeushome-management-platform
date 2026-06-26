@@ -18,6 +18,7 @@ CREATE TABLE IF NOT EXISTS projects (
   meta_description VARCHAR(160),
   description TEXT,
   cover_image VARCHAR(500),
+  video_url VARCHAR(500),
   tags TEXT[] DEFAULT '{}',
   completed_date VARCHAR(50),
   featured BOOLEAN DEFAULT false,
@@ -41,6 +42,17 @@ CREATE INDEX IF NOT EXISTS idx_projects_slug ON projects(slug);
 CREATE INDEX IF NOT EXISTS idx_projects_category ON projects(category);
 CREATE INDEX IF NOT EXISTS idx_projects_featured ON projects(featured);
 CREATE INDEX IF NOT EXISTS idx_project_images_project_id ON project_images(project_id);
+
+-- Add video_url column if it doesn't exist (migration)
+DO $$
+BEGIN
+  IF NOT EXISTS (
+    SELECT 1 FROM information_schema.columns
+    WHERE table_name = 'projects' AND column_name = 'video_url'
+  ) THEN
+    ALTER TABLE projects ADD COLUMN video_url VARCHAR(500);
+  END IF;
+END $$;
 
 -- Messages table
 CREATE TABLE IF NOT EXISTS messages (
