@@ -3,6 +3,12 @@ import { Helmet } from "react-helmet-async";
 import blogArticles from "../../data/blogArticles";
 import "./BlogPage.scss";
 
+import heroImg from "../../assets/images/blog/kitchen-white-gold.png";
+import cardImg1 from "../../assets/images/blog/kitchen-dark-island.png";
+import cardImg2 from "../../assets/images/blog/bathroom-dark-vanity.png";
+
+const CARD_IMAGES = [cardImg1, cardImg2];
+
 export default function BlogPage() {
   const navigate = useNavigate();
 
@@ -18,7 +24,7 @@ export default function BlogPage() {
       </Helmet>
 
       {/* Hero Section */}
-      <section className="blog-hero">
+      <section className="blog-hero" style={{ backgroundImage: `url(${heroImg})` }}>
         <div className="blog-hero__overlay"></div>
         <div className="blog-hero__content">
           <span className="blog-hero__label">Insights & Guides</span>
@@ -33,12 +39,19 @@ export default function BlogPage() {
       {/* Articles Grid */}
       <section className="blog-grid">
         <div className="blog-grid__container">
-          {blogArticles.map((article) => (
+          {blogArticles.map((article, index) => (
             <article
               key={article.slug}
               className="blog-card"
               onClick={() => navigate(`/blog/${article.slug}`)}
             >
+              <div className="blog-card__image">
+                <img
+                  src={CARD_IMAGES[index] || CARD_IMAGES[0]}
+                  alt={article.title}
+                  loading="lazy"
+                />
+              </div>
               <div className="blog-card__content">
                 <div className="blog-card__tags">
                   {article.tags.slice(0, 3).map((tag) => (

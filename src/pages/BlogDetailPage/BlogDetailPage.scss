@@ -45,6 +45,8 @@
     position: relative;
     min-height: 420px;
     background-color: $xeus-darkmaroon;
+    background-size: cover;
+    background-position: center;
     display: flex;
     align-items: flex-end;
     overflow: hidden;
@@ -141,6 +143,27 @@
 
   &__content {
     font-family: GeneralSans, sans-serif;
+  }
+
+  &__figure {
+    margin: 2rem -1.5rem;
+    border-radius: 12px;
+    overflow: hidden;
+
+    @include tablet-and-desktop {
+      margin: 2.5rem 0;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 0;
+
+      @include tablet-and-desktop {
+        border-radius: 12px;
+      }
+    }
   }
 
   &__heading {

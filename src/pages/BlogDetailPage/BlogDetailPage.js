@@ -3,6 +3,22 @@ import { Helmet } from "react-helmet-async";
 import blogArticles from "../../data/blogArticles";
 import "./BlogDetailPage.scss";
 
+import kitchenWhiteGold from "../../assets/images/blog/kitchen-white-gold.png";
+import bathroomDarkVanity from "../../assets/images/blog/bathroom-dark-vanity.png";
+import kitchenDarkIsland from "../../assets/images/blog/kitchen-dark-island.png";
+import contractorMiterSaw from "../../assets/images/blog/contractor-miter-saw.jpg";
+import demolitionInProgress from "../../assets/images/blog/demolition-in-progress.jpg";
+import contractorTileCutting from "../../assets/images/blog/contractor-tile-cutting.jpg";
+
+const BLOG_IMAGES = {
+  kitchenWhiteGold,
+  bathroomDarkVanity,
+  kitchenDarkIsland,
+  contractorMiterSaw,
+  demolitionInProgress,
+  contractorTileCutting,
+};
+
 export default function BlogDetailPage() {
   const { slug } = useParams();
   const navigate = useNavigate();
@@ -30,6 +46,17 @@ export default function BlogDetailPage() {
 
   const renderBlock = (block, index) => {
     switch (block.type) {
+      case "image":
+        return (
+          <figure key={index} className="blog-detail__figure">
+            <img
+              src={BLOG_IMAGES[block.imageKey]}
+              alt={block.alt}
+              loading="lazy"
+            />
+          </figure>
+        );
+
       case "heading":
         return <h2 key={index} className="blog-detail__heading">{block.text}</h2>;
 
@@ -110,7 +137,10 @@ export default function BlogDetailPage() {
       </Helmet>
 
       {/* Hero */}
-      <section className="blog-detail__hero">
+      <section
+        className="blog-detail__hero"
+        style={article.coverImageKey ? { backgroundImage: `url(${BLOG_IMAGES[article.coverImageKey]})` } : undefined}
+      >
         <div className="blog-detail__hero-overlay"></div>
         <div className="blog-detail__hero-content">
           <button className="blog-detail__back" onClick={() => navigate("/blog")}>

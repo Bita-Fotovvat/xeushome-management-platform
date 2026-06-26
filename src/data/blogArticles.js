@@ -5,6 +5,7 @@ const blogArticles = [
     seoTitle: "How to Choose a Renovation Contractor in Hamilton, Mississauga & the GTA | Xeus Home",
     metaDescription: "Not sure how to choose a renovation contractor in Hamilton, Mississauga, Burlington, or Oakville? Learn what to look for, what questions to ask, and how Xeus Home delivers the premium experience you deserve.",
     excerpt: "Choosing the right contractor is the most important decision you will make in any renovation project. This guide walks you through exactly what to look for so you can hire with confidence.",
+    coverImageKey: "kitchenDarkIsland",
     publishedDate: "2026-06-25",
     tags: ["Contractor Tips", "Hamilton", "GTA", "Renovation Guide"],
     content: [
@@ -41,6 +42,11 @@ const blogArticles = [
         text: "A legitimate contractor will provide this documentation without hesitation. If they cannot or will not, that is a significant red flag."
       },
       {
+        type: "image",
+        imageKey: "contractorTileCutting",
+        alt: "Certified renovation contractor carefully cutting tile during a home renovation project"
+      },
+      {
         type: "heading",
         text: "2. Look at Their Portfolio, Not Just Photos"
       },
@@ -51,6 +57,11 @@ const blogArticles = [
       {
         type: "paragraph",
         text: "At Xeus Home, we maintain a portfolio of completed renovations across Hamilton, Burlington, Oakville, Mississauga, Milton, and St. Catharines that you can review before we ever discuss your project. We believe transparency begins before the first conversation."
+      },
+      {
+        type: "image",
+        imageKey: "kitchenWhiteGold",
+        alt: "Premium white and gold kitchen renovation completed by Xeus Home in Hamilton, Ontario"
       },
       {
         type: "heading",
@@ -172,6 +183,7 @@ const blogArticles = [
     seoTitle: "What to Expect During a Home Renovation in Ontario | Xeus Home",
     metaDescription: "Wondering what happens during a kitchen, bathroom, or basement renovation? Xeus Home walks you through every phase, from planning to final walkthrough, so you know exactly what to expect.",
     excerpt: "If you have never renovated before, the process can feel overwhelming. This guide breaks down exactly what happens during a typical renovation in Ontario, from planning to final walkthrough.",
+    coverImageKey: "contractorMiterSaw",
     publishedDate: "2026-06-25",
     tags: ["Renovation Process", "Ontario", "Home Improvement", "Planning"],
     content: [
@@ -250,6 +262,11 @@ const blogArticles = [
         text: "Demolition also reveals what is behind your walls, and occasionally that means discovering unexpected issues like outdated wiring, water damage, or structural concerns. A trustworthy contractor will document anything they find, explain your options, and price any additional scope through a formal change order before proceeding."
       },
       {
+        type: "image",
+        imageKey: "demolitionInProgress",
+        alt: "Demolition phase of a home renovation project in progress"
+      },
+      {
         type: "heading",
         text: "Phase 4: Rough-In Work (Structure, Electrical, Plumbing, HVAC)"
       },
@@ -276,6 +293,11 @@ const blogArticles = [
       {
         type: "paragraph",
         text: "This is also when tiling, flooring, and cabinetry installation typically begins. These trades require precision and time, so do not expect them to be rushed. Quality tile work, in particular, is a skill that separates excellent renovations from mediocre ones."
+      },
+      {
+        type: "image",
+        imageKey: "contractorMiterSaw",
+        alt: "Renovation contractor using a miter saw to cut trim during the finishing phase"
       },
       {
         type: "heading",
@@ -365,6 +387,11 @@ const blogArticles = [
         type: "paragraph",
         bold: "Expect the unexpected.",
         text: " Older homes especially carry surprises inside their walls. Budget a 10 to 15 percent contingency for unforeseen conditions, and work with a contractor who communicates these issues clearly and prices them fairly."
+      },
+      {
+        type: "image",
+        imageKey: "bathroomDarkVanity",
+        alt: "Luxury bathroom renovation with dark vanity and glass shower completed by Xeus Home"
       },
       {
         type: "heading",
