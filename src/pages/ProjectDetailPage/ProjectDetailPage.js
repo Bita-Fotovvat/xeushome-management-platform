@@ -152,7 +152,14 @@ export default function ProjectDetailPage() {
         <div className="project-detail__info-grid">
           <div className="project-detail__description">
             <h2>About This Project</h2>
-            <p>{project.description}</p>
+            {project.description && project.description.includes("<") ? (
+              <div
+                className="project-detail__rich-content"
+                dangerouslySetInnerHTML={{ __html: project.description }}
+              />
+            ) : (
+              <p>{project.description}</p>
+            )}
           </div>
           <div className="project-detail__meta">
             <div className="project-detail__meta-item">

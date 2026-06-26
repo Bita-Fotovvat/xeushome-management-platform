@@ -1,5 +1,7 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
 import QuotationApp from "../../QuotationApp";
 import "./AdminDashboard.scss";
 
@@ -53,6 +55,52 @@ export default function AdminDashboard() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   const token = sessionStorage.getItem("adminToken");
+  const quillRef = useRef(null);
+
+  // Quill image handler — uploads to Cloudinary via the server
+  const imageHandler = useCallback(() => {
+    const input = document.createElement("input");
+    input.setAttribute("type", "file");
+    input.setAttribute("accept", "image/*");
+    input.click();
+    input.onchange = async () => {
+      const file = input.files[0];
+      if (!file) return;
+      const formData = new FormData();
+      formData.append("image", file);
+      try {
+        const res = await fetch(`${BASE_URL}/api/upload`, {
+          method: "POST",
+          headers: { Authorization: `Bearer ${token}` },
+          body: formData,
+        });
+        if (!res.ok) throw new Error("Upload failed");
+        const data = await res.json();
+        const editor = quillRef.current?.getEditor();
+        if (editor) {
+          const range = editor.getSelection(true);
+          editor.insertEmbed(range.index, "image", data.image_url);
+          editor.setSelection(range.index + 1);
+        }
+      } catch (err) {
+        alert("Failed to upload image: " + err.message);
+      }
+    };
+  }, [token]);
+
+  const quillModules = useMemo(() => ({
+    toolbar: {
+      container: [
+        [{ header: [2, 3, false] }],
+        ["bold", "italic", "underline"],
+        [{ align: [] }],
+        [{ list: "ordered" }, { list: "bullet" }],
+        ["link", "image"],
+        ["clean"],
+      ],
+      handlers: { image: imageHandler },
+    },
+  }), [imageHandler]);
 
   const authHeaders = useCallback(() => ({
     Authorization: `Bearer ${token}`,
@@ -527,13 +575,15 @@ export default function AdminDashboard() {
                 />
               </div>
 
-              <div className="admin__field admin__field--full">
+              <div className="admin__field admin__field--full admin__field--editor">
                 <label>Full Description</label>
-                <p className="admin__field-hint">📄 The detailed content visitors read on the project page. No character limit.</p>
-                <textarea
+                <p className="admin__field-hint">📄 The detailed content visitors read on the project page. Use the toolbar to format text, align paragraphs, and insert images inline.</p>
+                <ReactQuill
+                  ref={quillRef}
+                  theme="snow"
                   value={form.description}
-                  onChange={(e) => setForm({ ...form, description: e.target.value })}
-                  rows="8"
+                  onChange={(value) => setForm((prev) => ({ ...prev, description: value }))}
+                  modules={quillModules}
                   placeholder="Full detailed description of the project..."
                 />
               </div>
