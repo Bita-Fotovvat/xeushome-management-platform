@@ -15,23 +15,23 @@ export default function TorontoShelbysTwoProjPage(){
             <h1 className="torontoproject2__maintitle">Toronto Restaurant Project No. 2</h1>
             <section className="torontoproject2__imageparent">
                 <section className="torontoproject2__imageparent1">
-                    <img className="torontoproject2__image--1" src={TorontoTwoProj1} alt="kitchen renovation" />
-                    <img className="torontoproject2__image--2" src={TorontoTwoProj2} alt="living room renovation" />
+                    <img className="torontoproject2__image--1" src={TorontoTwoProj1} alt="kitchen renovation" loading="lazy" />
+                    <img className="torontoproject2__image--2" src={TorontoTwoProj2} alt="living room renovation" loading="lazy" />
                 </section>
                 <section className="torontoproject2__imageparent2">
-                    <img className="torontoproject2__image--3" src={TorontoTwoProj3} alt="walk-in closet inside building" />
-                    <img className="torontoproject2__image--4" src={TorontoTwoProj4} alt="walk-in closet inside remodeling" />
+                    <img className="torontoproject2__image--3" src={TorontoTwoProj3} alt="walk-in closet inside building" loading="lazy" />
+                    <img className="torontoproject2__image--4" src={TorontoTwoProj4} alt="walk-in closet inside remodeling" loading="lazy" />
                 </section>
                 <section className="torontoproject2__imageparent3">
-                    <img className="torontoproject2__image--5" src={TorontoTwoProj5} alt="vinyl flooring" />
-                    <img className="torontoproject2__image--6" src={TorontoTwoProj6} alt="tiling floor" />
+                    <img className="torontoproject2__image--5" src={TorontoTwoProj5} alt="vinyl flooring" loading="lazy" />
+                    <img className="torontoproject2__image--6" src={TorontoTwoProj6} alt="tiling floor" loading="lazy" />
                 </section>
                 <section className="torontoproject2__imageparent4">
-                    <img className="torontoproject2__image--7" src={TorontoTwoProj7} alt="bathroom renovation" />
-                    <img className="torontoproject2__image--8" src={TorontoTwoProj8} alt="living room renovation" />
+                    <img className="torontoproject2__image--7" src={TorontoTwoProj7} alt="bathroom renovation" loading="lazy" />
+                    <img className="torontoproject2__image--8" src={TorontoTwoProj8} alt="living room renovation" loading="lazy" />
                 </section>
                 <section className="torontoproject2__imageparent5">
-                    <img className="torontoproject2__image--9" src={TorontoTwoProj9} alt="bathroom renovation" />
+                    <img className="torontoproject2__image--9" src={TorontoTwoProj9} alt="bathroom renovation" loading="lazy" />
                 </section>
             </section>
         </main>

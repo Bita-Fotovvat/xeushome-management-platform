@@ -4,6 +4,8 @@
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.png" sizes="32x32"/>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://res.cloudinary.com" />
+    <link rel="dns-prefetch" href="https://res.cloudinary.com" />
     <meta name="theme-color" content="#000000" />
     <meta
       name="description"
@@ -34,14 +36,39 @@
       "image": "https://xeushome.ca/og-image.jpg",
       "description": "Premium renovation and remodeling exactly tailored to your lifestyle.",
       "url": "https://xeushome.ca",
+      "email": "xeushome@gmail.com",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "xeushome@gmail.com",
+        "contactType": "customer service",
+        "availableLanguage": ["English"]
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressRegion": "Ontario",
+        "addressCountry": "CA"
+      },
       "areaServed": [
         { "@type": "City", "name": "Hamilton", "addressRegion": "Ontario", "addressCountry": "CA" },
         { "@type": "City", "name": "Burlington", "addressRegion": "Ontario", "addressCountry": "CA" },
         { "@type": "City", "name": "Oakville", "addressRegion": "Ontario", "addressCountry": "CA" },
+        { "@type": "City", "name": "Mississauga", "addressRegion": "Ontario", "addressCountry": "CA" },
+        { "@type": "City", "name": "Milton", "addressRegion": "Ontario", "addressCountry": "CA" },
         { "@type": "City", "name": "St. Catharines", "addressRegion": "Ontario", "addressCountry": "CA" },
         { "@type": "City", "name": "Greater Toronto Area", "addressRegion": "Ontario", "addressCountry": "CA" }
       ],
-      "priceRange": "$$$$"
+      "priceRange": "$$$$",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Renovation Services",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Full Home Renovation" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Kitchen Renovation" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Bathroom Renovation" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Basement Renovation" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Commercial Renovation" } }
+        ]
+      }
     }
     </script>
   </head>

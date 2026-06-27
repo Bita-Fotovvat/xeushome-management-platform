@@ -16,24 +16,24 @@ export default function NiagaraOneProjPage(){
             <h1 className="niagaraproject1__maintitle">Niagara Project</h1>
             <section className="niagaraproject1__imageparent">
                 <section className="niagaraproject1__imageparent1">
-                    <img className="niagaraproject1__image--1" src={NiagaraOneProj1} alt="living room renovation drywall and framing" />
-                    <img className="niagaraproject1__image--2" src={NiagaraOneProj2} alt="dining room renovation drywall and framing" />
+                    <img className="niagaraproject1__image--1" src={NiagaraOneProj1} alt="living room renovation drywall and framing" loading="lazy" />
+                    <img className="niagaraproject1__image--2" src={NiagaraOneProj2} alt="dining room renovation drywall and framing" loading="lazy" />
                 </section>
                 <section className="niagaraproject1__imageparent2">
-                    <img className="niagaraproject1__image--3" src={NiagaraOneProj3} alt="bedroom renovation drywall and framing" />
-                    <img className="niagaraproject1__image--4" src={NiagaraOneProj4} alt="bedroom renovation drywall" />
+                    <img className="niagaraproject1__image--3" src={NiagaraOneProj3} alt="bedroom renovation drywall and framing" loading="lazy" />
+                    <img className="niagaraproject1__image--4" src={NiagaraOneProj4} alt="bedroom renovation drywall" loading="lazy" />
                 </section>
                 <section className="niagaraproject1__imageparent3">
-                    <img className="niagaraproject1__image--5" src={NiagaraOneProj5} alt="renovation ceiling drywall" />
-                    <img className="niagaraproject1__image--6" src={NiagaraOneProj6} alt="renovation plumbing & electrical services" />
+                    <img className="niagaraproject1__image--5" src={NiagaraOneProj5} alt="renovation ceiling drywall" loading="lazy" />
+                    <img className="niagaraproject1__image--6" src={NiagaraOneProj6} alt="renovation plumbing & electrical services" loading="lazy" />
                 </section>
                 <section className="niagaraproject1__imageparent4">
-                    <img className="niagaraproject1__image--7" src={NiagaraOneProj7} alt="bedroom renovation" />
-                    <img className="niagaraproject1__image--8" src={NiagaraOneProj8} alt="living room renovation" />
+                    <img className="niagaraproject1__image--7" src={NiagaraOneProj7} alt="bedroom renovation" loading="lazy" />
+                    <img className="niagaraproject1__image--8" src={NiagaraOneProj8} alt="living room renovation" loading="lazy" />
                 </section>
                 <section className="niagaraproject1__imageparent5">
-                    <img className="niagaraproject1__image--9" src={NiagaraOneProj9} alt="bathroom renovation" />
-                    <img className="niagaraproject1__image--10" src={NiagaraOneProj10} alt="kitchen renovation" />
+                    <img className="niagaraproject1__image--9" src={NiagaraOneProj9} alt="bathroom renovation" loading="lazy" />
+                    <img className="niagaraproject1__image--10" src={NiagaraOneProj10} alt="kitchen renovation" loading="lazy" />
                 </section>
                 
             </section>

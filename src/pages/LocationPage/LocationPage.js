@@ -1,7 +1,19 @@
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import locationPages from "../../data/locationPages";
+import Breadcrumbs from "../../components/Breadcrumbs/Breadcrumbs";
 import "./LocationPage.scss";
+
+const RELATED_ARTICLES = [
+  {
+    slug: "how-to-choose-renovation-contractor-hamilton-gta",
+    title: "How to Choose the Right Renovation Contractor",
+  },
+  {
+    slug: "what-to-expect-during-home-renovation-ontario",
+    title: "What to Expect During a Home Renovation",
+  },
+];
 
 export default function LocationPage() {
   const { slug } = useParams();
@@ -51,6 +63,11 @@ export default function LocationPage() {
         </div>
       </section>
 
+      <Breadcrumbs items={[
+        { label: "Services" },
+        { label: `${page.service} in ${page.city}` },
+      ]} />
+
       {/* Intro */}
       <section className="location-intro">
         <div className="location-intro__container">
@@ -91,6 +108,21 @@ export default function LocationPage() {
           >
             View Our Projects
           </button>
+        </div>
+      </section>
+
+      {/* Related Articles */}
+      <section className="location-articles">
+        <div className="location-articles__container">
+          <h2>Renovation Guides & Tips</h2>
+          <p>Read our expert guides to help you plan your renovation with confidence.</p>
+          <div className="location-articles__links">
+            {RELATED_ARTICLES.map((article) => (
+              <Link key={article.slug} to={`/blog/${article.slug}`} className="location-articles__link">
+                {article.title} →
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 

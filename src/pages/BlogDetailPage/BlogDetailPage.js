@@ -1,4 +1,4 @@
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import blogArticles from "../../data/blogArticles";
 import Breadcrumbs from "../../components/Breadcrumbs/Breadcrumbs";
@@ -115,6 +115,20 @@ export default function BlogDetailPage() {
               </span>{" "}
               for a free consultation.
             </p>
+          </div>
+        );
+
+      case "relatedLinks":
+        return (
+          <div key={index} className="blog-detail__related-links">
+            <h3>{block.heading}</h3>
+            <ul>
+              {block.links.map((link, i) => (
+                <li key={i}>
+                  <Link to={link.url}>{link.label}</Link>
+                </li>
+              ))}
+            </ul>
           </div>
         );
 

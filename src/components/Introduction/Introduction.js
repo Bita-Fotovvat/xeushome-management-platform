@@ -59,10 +59,11 @@ export default function Introduction() {
                             className={`home-services__panel ${index === activeTab ? 'home-services__panel--active' : ''}`}
                         >
                             <div className="home-services__panel-image-wrapper">
-                                <img 
-                                    className="home-services__panel-image" 
-                                    src={item.image} 
+                                <img
+                                    className="home-services__panel-image"
+                                    src={item.image}
                                     alt={item.tag}
+                                    loading="lazy"
                                 />
                             </div>
                             <div className="home-services__panel-info">

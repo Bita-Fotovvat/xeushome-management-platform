@@ -170,6 +170,17 @@ const blogArticles = [
         text: "We proudly serve homeowners throughout Hamilton, Burlington, Oakville, Mississauga, Milton, St. Catharines, and the greater GTA, bringing the same level of care and craftsmanship to every project, regardless of size."
       },
       {
+        type: "relatedLinks",
+        heading: "Explore Our Services by Location",
+        links: [
+          { label: "Kitchen Renovation in Hamilton", url: "/services/kitchen-renovation-hamilton" },
+          { label: "Bathroom Renovation in Burlington", url: "/services/bathroom-renovation-burlington" },
+          { label: "Home Renovation in Oakville", url: "/services/home-renovation-oakville" },
+          { label: "Home Renovation in Mississauga", url: "/services/home-renovation-mississauga" },
+          { label: "Renovation Contractor in St. Catharines", url: "/services/renovation-contractor-st-catharines" },
+        ]
+      },
+      {
         type: "cta",
         text: "Ready to start your renovation?",
         linkText: "Contact Xeus Home today",
@@ -404,6 +415,17 @@ const blogArticles = [
       {
         type: "paragraph",
         text: "We believe a renovation should feel exciting, not anxious. When communication is clear, timelines are honest, and workmanship is held to a premium standard, it can be."
+      },
+      {
+        type: "relatedLinks",
+        heading: "Explore Our Services by Location",
+        links: [
+          { label: "Kitchen Renovation in Hamilton", url: "/services/kitchen-renovation-hamilton" },
+          { label: "Basement Renovation in the GTA", url: "/services/basement-renovation-gta" },
+          { label: "Home Renovation in Mississauga", url: "/services/home-renovation-mississauga" },
+          { label: "Home Renovation in Oakville", url: "/services/home-renovation-oakville" },
+          { label: "Bathroom Renovation in Burlington", url: "/services/bathroom-renovation-burlington" },
+        ]
       },
       {
         type: "cta",

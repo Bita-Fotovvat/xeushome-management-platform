@@ -11,7 +11,7 @@ export default function About() {
                 
                 <div className="home-about__image-column">
                     <div className="home-about__image-wrapper">
-                        <img src={AboutPhoto} alt="XeusHome Renovation completed interior" className="home-about__image" />
+                        <img src={AboutPhoto} alt="XeusHome Renovation completed interior" className="home-about__image" loading="lazy" />
                         <div className="home-about__experience-badge">
                             <span className="home-about__years">10+</span>
                             <span className="home-about__text">Years of<br/>Experience</span>

@@ -403,6 +403,48 @@
     text-transform: uppercase;
     letter-spacing: 1px;
   }
+
+  &__related-links {
+    margin: 2.5rem 0;
+    padding: 2rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+
+    h3 {
+      font-family: Cormorant, serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: $text-darkgray;
+      margin-bottom: 1rem;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    li a {
+      display: inline-block;
+      padding: 6px 16px;
+      background: rgba(224, 196, 154, 0.15);
+      border-radius: 100px;
+      font-family: GeneralSans, sans-serif;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: $xeus-darkmaroon;
+      text-decoration: none;
+      transition: background 0.2s;
+
+      &:hover {
+        background: rgba(224, 196, 154, 0.35);
+      }
+    }
+  }
 }
 
 @keyframes blogDetailIn {

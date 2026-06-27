@@ -65,7 +65,7 @@ export default function AboutUsPage() {
                 <div className="container">
                     <div className="team-grid">
                         <div className="team-grid__image">
-                            <img src={OurTeam} alt="Our Renovation Team" />
+                            <img src={OurTeam} alt="Our Renovation Team" loading="lazy" />
                             <div className="team-card">
                                 <h3>Dedicated Experts</h3>
                                 <p>Unmatched quality from start to finish.</p>
@@ -116,7 +116,7 @@ export default function AboutUsPage() {
                             </ul>
                         </div>
                         <div className="why-grid__image">
-                            <img src={WhyHireUs} alt="Why Hire Us" />
+                            <img src={WhyHireUs} alt="Why Hire Us" loading="lazy" />
                             <div className="why-grid__overlay"></div>
                         </div>
                     </div>
