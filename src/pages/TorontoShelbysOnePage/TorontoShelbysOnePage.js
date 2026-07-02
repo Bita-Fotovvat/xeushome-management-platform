@@ -11,15 +11,15 @@ export default function TorontoShelbysOnePage(){
             <h1 className="torontoproject1__maintitle">Toronto Restaurant Project</h1>
             <section className="torontoproject1__imageparent">
                 <section className="torontoproject1__imageparent1">
-                    <img className="torontoproject1__image--1" src={TorontoOneProj1} alt="kitchen renovation" />
-                    <img className="torontoproject1__image--2" src={TorontoOneProj2} alt="living room renovation" />
+                    <img loading="lazy" className="torontoproject1__image--1" src={TorontoOneProj1} alt="kitchen renovation" />
+                    <img loading="lazy" className="torontoproject1__image--2" src={TorontoOneProj2} alt="living room renovation" />
                 </section>
                 <section className="torontoproject1__imageparent2">
-                    <img className="torontoproject1__image--3" src={TorontoOneProj3} alt="walk-in closet inside building" />
-                    <img className="torontoproject1__image--4" src={TorontoOneProj4} alt="walk-in closet inside remodeling" />
+                    <img loading="lazy" className="torontoproject1__image--3" src={TorontoOneProj3} alt="walk-in closet inside building" />
+                    <img loading="lazy" className="torontoproject1__image--4" src={TorontoOneProj4} alt="walk-in closet inside remodeling" />
                 </section>
                 <section className="torontoproject1__imageparent3">
-                    <img className="torontoproject1__image--5" src={TorontoOneProj3} alt="walk-in closet inside building" />
+                    <img loading="lazy" className="torontoproject1__image--5" src={TorontoOneProj3} alt="walk-in closet inside building" />
                 </section>
             </section> 
         </main>

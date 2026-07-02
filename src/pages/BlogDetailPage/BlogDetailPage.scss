@@ -283,6 +283,52 @@
     &:hover { color: darken(#2f020c, 10%); }
   }
 
+  &__related-links {
+    max-width: 780px;
+    margin: 2rem auto;
+    padding: 1.5rem 2rem;
+    background: rgba(224, 196, 154, 0.1);
+    border-radius: 12px;
+    border: 1px solid rgba(224, 196, 154, 0.25);
+
+    h3 {
+      font-family: Cormorant, serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: $text-darkgray;
+      margin-bottom: 0.75rem;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    li a {
+      display: inline-block;
+      padding: 6px 16px;
+      background: white;
+      border: 1px solid rgba(47, 2, 12, 0.12);
+      border-radius: 100px;
+      font-family: GeneralSans, sans-serif;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: $xeus-darkmaroon;
+      text-decoration: none;
+      transition: all 0.2s;
+
+      &:hover {
+        background: $xeus-darkmaroon;
+        color: $xeus-lightbeige;
+        border-color: $xeus-darkmaroon;
+      }
+    }
+  }
+
   /* Author */
   &__author {
     max-width: 780px;

@@ -84,41 +84,57 @@ const LOCATION_PAGES = {
 function getMetaForPath(reqPath, projectRow) {
   // Static pages
   if (STATIC_PAGES[reqPath]) {
-    return { ...STATIC_PAGES[reqPath], url: `https://xeushome.ca${reqPath === '/' ? '' : reqPath}` };
+    const page = STATIC_PAGES[reqPath];
+    return {
+      ...page,
+      url: `https://xeushome.ca${reqPath === '/' ? '' : reqPath}`,
+      bodyContent: `<h1>${escapeHtml(page.title)}</h1><p>${escapeHtml(page.description)}</p>`,
+    };
   }
 
   // Blog detail pages
   const blogMatch = reqPath.match(/^\/blog\/(.+)$/);
   if (blogMatch && BLOG_ARTICLES[blogMatch[1]]) {
+    const article = BLOG_ARTICLES[blogMatch[1]];
     return {
-      ...BLOG_ARTICLES[blogMatch[1]],
+      ...article,
       ogImage: 'https://xeushome.ca/og-image.jpg',
       url: `https://xeushome.ca${reqPath}`,
+      bodyContent: article.bodyContent || `<h1>${escapeHtml(article.title)}</h1><p>${escapeHtml(article.description)}</p>`,
     };
   }
 
   // Location pages
   const locMatch = reqPath.match(/^\/services\/(.+)$/);
   if (locMatch && LOCATION_PAGES[locMatch[1]]) {
+    const loc = LOCATION_PAGES[locMatch[1]];
     return {
-      ...LOCATION_PAGES[locMatch[1]],
+      ...loc,
       ogImage: 'https://xeushome.ca/og-image.jpg',
       url: `https://xeushome.ca${reqPath}`,
+      bodyContent: loc.bodyContent || `<h1>${escapeHtml(loc.title)}</h1><p>${escapeHtml(loc.description)}</p>`,
     };
   }
 
   // Project detail pages (from DB row)
   if (projectRow) {
     const desc = projectRow.meta_description || (projectRow.description ? projectRow.description.slice(0, 160) : `${projectRow.title} - A renovation project by Xeus Home.`);
+    const plainDesc = projectRow.description ? projectRow.description.replace(/<[^>]+>/g, ' ').slice(0, 500) : '';
     return {
       title: `${projectRow.title} | Xeus Home`,
       description: desc,
       ogImage: projectRow.cover_image ? (projectRow.cover_image.startsWith('http') ? projectRow.cover_image : `https://renovation-website-pdnn.onrender.com${projectRow.cover_image}`) : 'https://xeushome.ca/og-image.jpg',
       url: `https://xeushome.ca/our-projects/${projectRow.slug}`,
+      bodyContent: `<h1>${escapeHtml(projectRow.title)}</h1><p>${escapeHtml(plainDesc)}</p>`,
     };
   }
 
   return null;
+}
+
+function escapeHtml(str) {
+  if (!str) return '';
+  return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
 
 /**
@@ -174,6 +190,14 @@ function injectMeta(html, meta) {
     html = html.replace(
       '</head>',
       `  <link rel="canonical" href="${escapeAttr(meta.url)}" />\n  </head>`
+    );
+  }
+
+  // Inject server-rendered content into <div id="root"> for crawlers
+  if (meta.bodyContent) {
+    html = html.replace(
+      '<div id="root"></div>',
+      `<div id="root"></div>\n  <div id="seo-content" style="display:none">${meta.bodyContent}</div>`
     );
   }
 

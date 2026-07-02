@@ -15,22 +15,22 @@ export default function OakvilleOneProjPage(){
             <h1 className="oakvilleproject1__maintitle">Oakville Project</h1>
             <section className="oakvilleproject1__imageparent">
                 <section className="oakvilleproject1__imageparent1">
-                    <img className="oakvilleproject1__image--1" src={OakvilleOneProj1} alt="" />
-                    <img className="oakvilleproject1__image--2" src={OakvilleOneProj2} alt="" />
+                    <img loading="lazy" className="oakvilleproject1__image--1" src={OakvilleOneProj1} alt="" />
+                    <img loading="lazy" className="oakvilleproject1__image--2" src={OakvilleOneProj2} alt="" />
                 </section>
                 <section className="oakvilleproject1__imageparent2">
-                    <img className="oakvilleproject1__image--3" src={OakvilleOneProj3} alt="" />
-                    <img className="oakvilleproject1__image--4" src={OakvilleOneProj4} alt="" />
+                    <img loading="lazy" className="oakvilleproject1__image--3" src={OakvilleOneProj3} alt="" />
+                    <img loading="lazy" className="oakvilleproject1__image--4" src={OakvilleOneProj4} alt="" />
                 </section>
                 <section className="oakvilleproject1__imageparent3">
-                    <img className="oakvilleproject1__image--5" src={OakvilleOneProj5} alt="" />
-                    <img className="oakvilleproject1__image--6" src={OakvilleOneProj6} alt="" />
+                    <img loading="lazy" className="oakvilleproject1__image--5" src={OakvilleOneProj5} alt="" />
+                    <img loading="lazy" className="oakvilleproject1__image--6" src={OakvilleOneProj6} alt="" />
                 </section>
                 <section className="oakvilleproject1__imageparent4">
-                    <img className="oakvilleproject1__image--7" src={OakvilleOneProj7} alt="" />
-                    <img className="oakvilleproject1__image--8" src={OakvilleOneProj8} alt="" />
+                    <img loading="lazy" className="oakvilleproject1__image--7" src={OakvilleOneProj7} alt="" />
+                    <img loading="lazy" className="oakvilleproject1__image--8" src={OakvilleOneProj8} alt="" />
                 </section>
-                <img className="oakvilleproject1__image--9" src={OakvilleOneProj9} alt="" />
+                <img loading="lazy" className="oakvilleproject1__image--9" src={OakvilleOneProj9} alt="" />
             </section>
         </main>
     )

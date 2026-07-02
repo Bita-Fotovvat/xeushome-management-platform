@@ -20,32 +20,32 @@ export default function ColborneOneProjPage(){
             <h1 className="colborneproject1__maintitle">Colborne Project</h1>
             <section className="colborneproject1__imageparent">
                 <section className="colborneproject1__imageparent1">
-                    <img className="colborneproject1__image--1" src={ColborneOneProj1} alt="kitchen renovation" />
-                    <img className="colborneproject1__image--2" src={ColborneOneProj2} alt="living room renovation" />
+                    <img loading="lazy" className="colborneproject1__image--1" src={ColborneOneProj1} alt="kitchen renovation" />
+                    <img loading="lazy" className="colborneproject1__image--2" src={ColborneOneProj2} alt="living room renovation" />
                 </section>
                 <section className="colborneproject1__imageparent2">
-                    <img className="colborneproject1__image--3" src={ColborneOneProj3} alt="walk-in closet inside building" />
-                    <img className="colborneproject1__image--4" src={ColborneOneProj4} alt="walk-in closet inside remodeling" />
+                    <img loading="lazy" className="colborneproject1__image--3" src={ColborneOneProj3} alt="walk-in closet inside building" />
+                    <img loading="lazy" className="colborneproject1__image--4" src={ColborneOneProj4} alt="walk-in closet inside remodeling" />
                 </section>
                 <section className="colborneproject1__imageparent3">
-                    <img className="colborneproject1__image--5" src={ColborneOneProj5} alt="vinyl flooring" />
-                    <img className="colborneproject1__image--6" src={ColborneOneProj6} alt="tiling floor" />
+                    <img loading="lazy" className="colborneproject1__image--5" src={ColborneOneProj5} alt="vinyl flooring" />
+                    <img loading="lazy" className="colborneproject1__image--6" src={ColborneOneProj6} alt="tiling floor" />
                 </section>
                 <section className="colborneproject1__imageparent4">
-                    <img className="colborneproject1__image--7" src={ColborneOneProj7} alt="bathroom renovation" />
-                    <img className="colborneproject1__image--8" src={ColborneOneProj8} alt="living room renovation" />
+                    <img loading="lazy" className="colborneproject1__image--7" src={ColborneOneProj7} alt="bathroom renovation" />
+                    <img loading="lazy" className="colborneproject1__image--8" src={ColborneOneProj8} alt="living room renovation" />
                 </section>
                 <section className="colborneproject1__imageparent5">
-                    <img className="colborneproject1__image--9" src={ColborneOneProj9} alt="bathroom renovation" />
-                    <img className="colborneproject1__image--10" src={ColborneOneProj10} alt="bathroom renovation" />
+                    <img loading="lazy" className="colborneproject1__image--9" src={ColborneOneProj9} alt="bathroom renovation" />
+                    <img loading="lazy" className="colborneproject1__image--10" src={ColborneOneProj10} alt="bathroom renovation" />
                 </section>
                 <section className="colborneproject1__imageparent6">
-                    <img className="colborneproject1__image--11" src={ColborneOneProj11} alt="potlight installation" />
-                    <img className="colborneproject1__image--12" src={ColborneOneProj12} alt="painting and flooring" />
+                    <img loading="lazy" className="colborneproject1__image--11" src={ColborneOneProj11} alt="potlight installation" />
+                    <img loading="lazy" className="colborneproject1__image--12" src={ColborneOneProj12} alt="painting and flooring" />
                 </section>
                 <section className="colborneproject1__imageparent7">
-                    <img className="colborneproject1__image--13" src={ColborneOneProj13} alt="flooring services" />
-                    <img className="colborneproject1__image--14" src={ColborneOneProj14} alt="fireplace makeover & remodeling" />
+                    <img loading="lazy" className="colborneproject1__image--13" src={ColborneOneProj13} alt="flooring services" />
+                    <img loading="lazy" className="colborneproject1__image--14" src={ColborneOneProj14} alt="fireplace makeover & remodeling" />
                 </section>
             </section>
         </main>

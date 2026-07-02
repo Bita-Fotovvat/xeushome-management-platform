@@ -15,23 +15,23 @@ export default function OakvilleTwoProjPage(){
             <h1 className="oakvilleproject2__maintitle">Oakville Project No. 2</h1>
             <section className="oakvilleproject2__imageparent">
                 <section className="oakvilleproject2__imageparent1">
-                    <img className="oakvilleproject2__image--1" src={OakvilleTwoProj1} alt="kitchen renovation" />
-                    <img className="oakvilleproject2__image--2" src={OakvilleTwoProj2} alt="living room renovation" />
+                    <img loading="lazy" className="oakvilleproject2__image--1" src={OakvilleTwoProj1} alt="kitchen renovation" />
+                    <img loading="lazy" className="oakvilleproject2__image--2" src={OakvilleTwoProj2} alt="living room renovation" />
                 </section>
                 <section className="oakvilleproject2__imageparent2">
-                    <img className="oakvilleproject2__image--3" src={OakvilleTwoProj3} alt="walk-in closet inside building" />
-                    <img className="oakvilleproject2__image--4" src={OakvilleTwoProj4} alt="walk-in closet inside remodeling" />
+                    <img loading="lazy" className="oakvilleproject2__image--3" src={OakvilleTwoProj3} alt="walk-in closet inside building" />
+                    <img loading="lazy" className="oakvilleproject2__image--4" src={OakvilleTwoProj4} alt="walk-in closet inside remodeling" />
                 </section>
                 <section className="oakvilleproject2__imageparent3">
-                    <img className="oakvilleproject2__image--5" src={OakvilleTwoProj5} alt="vinyl flooring" />
-                    <img className="oakvilleproject2__image--6" src={OakvilleTwoProj6} alt="tiling floor" />
+                    <img loading="lazy" className="oakvilleproject2__image--5" src={OakvilleTwoProj5} alt="vinyl flooring" />
+                    <img loading="lazy" className="oakvilleproject2__image--6" src={OakvilleTwoProj6} alt="tiling floor" />
                 </section>
                 <section className="oakvilleproject2__imageparent4">
-                    <img className="oakvilleproject2__image--7" src={OakvilleTwoProj7} alt="bathroom renovation" />
-                    <img className="oakvilleproject2__image--8" src={OakvilleTwoProj8} alt="living room renovation" />
+                    <img loading="lazy" className="oakvilleproject2__image--7" src={OakvilleTwoProj7} alt="bathroom renovation" />
+                    <img loading="lazy" className="oakvilleproject2__image--8" src={OakvilleTwoProj8} alt="living room renovation" />
                 </section>
                 <section className="oakvilleproject2__imageparent5">
-                    <img className="oakvilleproject2__image--9" src={OakvilleTwoProj9} alt="bathroom renovation" />
+                    <img loading="lazy" className="oakvilleproject2__image--9" src={OakvilleTwoProj9} alt="bathroom renovation" />
                 </section>
             </section>
         </main>

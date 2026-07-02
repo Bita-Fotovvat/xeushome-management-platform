@@ -23,71 +23,71 @@ export default function BurlingtonOneProjPage(){
             <h1 className="burlingtonproject1__maintitle">Burlington Project</h1>
             <section className="burlingtonproject1__imageparent">
                 <section className="burlingtonproject1__imageparent1">
-                    <img className="burlingtonproject1__image--1" src={BurlingtonOneProj1} alt="living room renovation drywall and framing" />
-                    <img className="burlingtonproject1__image--2" src={BurlingtonOneProj2} alt="dining room renovation drywall and framing" />
+                    <img loading="lazy" className="burlingtonproject1__image--1" src={BurlingtonOneProj1} alt="living room renovation drywall and framing" />
+                    <img loading="lazy" className="burlingtonproject1__image--2" src={BurlingtonOneProj2} alt="dining room renovation drywall and framing" />
                 </section>
                 <section className="burlingtonproject1__imageparent2">
-                    <img className="burlingtonproject1__image--3" src={BurlingtonOneProj3} alt="bedroom renovation drywall and framing" />
-                    <img className="burlingtonproject1__image--4" src={BurlingtonOneProj4} alt="bedroom renovation drywall" />
+                    <img loading="lazy" className="burlingtonproject1__image--3" src={BurlingtonOneProj3} alt="bedroom renovation drywall and framing" />
+                    <img loading="lazy" className="burlingtonproject1__image--4" src={BurlingtonOneProj4} alt="bedroom renovation drywall" />
                 </section>
                 <section className="burlingtonproject1__imageparent3">
-                    <img className="burlingtonproject1__image--5" src={BurlingtonOneProj5} alt="renovation ceiling drywall" />
-                    <img className="burlingtonproject1__image--6" src={BurlingtonOneProj6} alt="renovation plumbing & electrical services" />
+                    <img loading="lazy" className="burlingtonproject1__image--5" src={BurlingtonOneProj5} alt="renovation ceiling drywall" />
+                    <img loading="lazy" className="burlingtonproject1__image--6" src={BurlingtonOneProj6} alt="renovation plumbing & electrical services" />
                 </section>
                 <section className="burlingtonproject1__imageparent4">
-                    <img className="burlingtonproject1__image--7" src={BurlingtonOneProj7} alt="bedroom renovation" />
-                    <img className="burlingtonproject1__image--8" src={BurlingtonOneProj8} alt="living room renovation" />
+                    <img loading="lazy" className="burlingtonproject1__image--7" src={BurlingtonOneProj7} alt="bedroom renovation" />
+                    <img loading="lazy" className="burlingtonproject1__image--8" src={BurlingtonOneProj8} alt="living room renovation" />
                 </section>
                 <section className="burlingtonproject1__imageparent5">
-                    <img className="burlingtonproject1__image--9" src={BurlingtonOneProj9} alt="bathroom renovation" />
-                    <img className="burlingtonproject1__image--10" src={BurlingtonOneProj10} alt="kitchen renovation" />
+                    <img loading="lazy" className="burlingtonproject1__image--9" src={BurlingtonOneProj9} alt="bathroom renovation" />
+                    <img loading="lazy" className="burlingtonproject1__image--10" src={BurlingtonOneProj10} alt="kitchen renovation" />
                 </section>
                 <section className="burlingtonproject1__imageparent6">
-                    <img className="burlingtonproject1__image--11" src={BurlingtonOneProj11} alt="bathroom renovation" />
-                    <img className="burlingtonproject1__image--12" src={BurlingtonOneProj12} alt="kitchen renovation" />
+                    <img loading="lazy" className="burlingtonproject1__image--11" src={BurlingtonOneProj11} alt="bathroom renovation" />
+                    <img loading="lazy" className="burlingtonproject1__image--12" src={BurlingtonOneProj12} alt="kitchen renovation" />
                 </section>
                 <section className="burlingtonproject1__imageparent7">
-                    <img className="burlingtonproject1__image--13" src={BurlingtonOneProj13} alt="bathroom renovation" />
-                    <img className="burlingtonproject1__image--14" src={BurlingtonOneProj14} alt="kitchen renovation" />
+                    <img loading="lazy" className="burlingtonproject1__image--13" src={BurlingtonOneProj13} alt="bathroom renovation" />
+                    <img loading="lazy" className="burlingtonproject1__image--14" src={BurlingtonOneProj14} alt="kitchen renovation" />
                 </section>
                 <section className="burlingtonproject1__imageparent8">
-                    <img className="burlingtonproject1__image--15" src={BurlingtonOneProj15} alt="bathroom renovation" />
-                    <img className="burlingtonproject1__image--16" src={BurlingtonOneProj16} alt="kitchen renovation" />
+                    <img loading="lazy" className="burlingtonproject1__image--15" src={BurlingtonOneProj15} alt="bathroom renovation" />
+                    <img loading="lazy" className="burlingtonproject1__image--16" src={BurlingtonOneProj16} alt="kitchen renovation" />
                 </section>
                 <section className="burlingtonproject1__imageparent9">
-                    <img className="burlingtonproject1__image--17" src={BurlingtonOneProj17} alt="bathroom renovation" />
+                    <img loading="lazy" className="burlingtonproject1__image--17" src={BurlingtonOneProj17} alt="bathroom renovation" />
                 </section>
             </section>
 
             <section className="burlingtonproject1__imageparentdesktop">
                 <section className="burlingtonproject1__imageparent1">
-                    <img className="burlingtonproject1__image--1" src={BurlingtonOneProj1} alt="living room renovation drywall and framing" />
-                    <img className="burlingtonproject1__image--2" src={BurlingtonOneProj2} alt="dining room renovation drywall and framing" />
-                    <img className="burlingtonproject1__image--3" src={BurlingtonOneProj3} alt="bedroom renovation drywall and framing" />
+                    <img loading="lazy" className="burlingtonproject1__image--1" src={BurlingtonOneProj1} alt="living room renovation drywall and framing" />
+                    <img loading="lazy" className="burlingtonproject1__image--2" src={BurlingtonOneProj2} alt="dining room renovation drywall and framing" />
+                    <img loading="lazy" className="burlingtonproject1__image--3" src={BurlingtonOneProj3} alt="bedroom renovation drywall and framing" />
                 </section>
                 <section className="burlingtonproject1__imageparent2">
-                    <img className="burlingtonproject1__image--4" src={BurlingtonOneProj4} alt="bedroom renovation drywall" />
-                    <img className="burlingtonproject1__image--5" src={BurlingtonOneProj5} alt="renovation ceiling drywall" />
-                    <img className="burlingtonproject1__image--6" src={BurlingtonOneProj6} alt="renovation plumbing & electrical services" />
+                    <img loading="lazy" className="burlingtonproject1__image--4" src={BurlingtonOneProj4} alt="bedroom renovation drywall" />
+                    <img loading="lazy" className="burlingtonproject1__image--5" src={BurlingtonOneProj5} alt="renovation ceiling drywall" />
+                    <img loading="lazy" className="burlingtonproject1__image--6" src={BurlingtonOneProj6} alt="renovation plumbing & electrical services" />
                 </section>
                 <section className="burlingtonproject1__imageparent3">
-                    <img className="burlingtonproject1__image--7" src={BurlingtonOneProj7} alt="bedroom renovation" />
-                    <img className="burlingtonproject1__image--8" src={BurlingtonOneProj8} alt="living room renovation" />
-                    <img className="burlingtonproject1__image--9" src={BurlingtonOneProj9} alt="bathroom renovation" />
+                    <img loading="lazy" className="burlingtonproject1__image--7" src={BurlingtonOneProj7} alt="bedroom renovation" />
+                    <img loading="lazy" className="burlingtonproject1__image--8" src={BurlingtonOneProj8} alt="living room renovation" />
+                    <img loading="lazy" className="burlingtonproject1__image--9" src={BurlingtonOneProj9} alt="bathroom renovation" />
                 </section>
                 <section className="burlingtonproject1__imageparent4">
-                    <img className="burlingtonproject1__image--10" src={BurlingtonOneProj10} alt="kitchen renovation" />
-                    <img className="burlingtonproject1__image--11" src={BurlingtonOneProj11} alt="bathroom renovation" />
-                    <img className="burlingtonproject1__image--12" src={BurlingtonOneProj12} alt="kitchen renovation" />
+                    <img loading="lazy" className="burlingtonproject1__image--10" src={BurlingtonOneProj10} alt="kitchen renovation" />
+                    <img loading="lazy" className="burlingtonproject1__image--11" src={BurlingtonOneProj11} alt="bathroom renovation" />
+                    <img loading="lazy" className="burlingtonproject1__image--12" src={BurlingtonOneProj12} alt="kitchen renovation" />
                 </section>
                 <section className="burlingtonproject1__imageparent5">
-                    <img className="burlingtonproject1__image--13" src={BurlingtonOneProj13} alt="bathroom renovation" />
-                    <img className="burlingtonproject1__image--14" src={BurlingtonOneProj14} alt="kitchen renovation" />
-                    <img className="burlingtonproject1__image--15" src={BurlingtonOneProj15} alt="bathroom renovation" />
+                    <img loading="lazy" className="burlingtonproject1__image--13" src={BurlingtonOneProj13} alt="bathroom renovation" />
+                    <img loading="lazy" className="burlingtonproject1__image--14" src={BurlingtonOneProj14} alt="kitchen renovation" />
+                    <img loading="lazy" className="burlingtonproject1__image--15" src={BurlingtonOneProj15} alt="bathroom renovation" />
                 </section>
                 <section className="burlingtonproject1__imageparent6">
-                    <img className="burlingtonproject1__image--16" src={BurlingtonOneProj16} alt="kitchen renovation" />
-                    <img className="burlingtonproject1__image--17" src={BurlingtonOneProj17} alt="bathroom renovation" />
+                    <img loading="lazy" className="burlingtonproject1__image--16" src={BurlingtonOneProj16} alt="kitchen renovation" />
+                    <img loading="lazy" className="burlingtonproject1__image--17" src={BurlingtonOneProj17} alt="bathroom renovation" />
                 </section>
             </section>
         </main>

@@ -20,32 +20,32 @@ export default function AncasterOneProjPage(){
             <h1 className="ancasterproject1__maintitle">Ancaster Project</h1>
             <section className="ancasterproject1__imageparent">
                 <section className="ancasterproject1__imageparent1">
-                    <img className="ancasterproject1__image--1" src={AncasterOneProj1} alt="kitchen renovation" />
-                    <img className="ancasterproject1__image--2" src={AncasterOneProj2} alt="living room renovation" />
+                    <img loading="lazy" className="ancasterproject1__image--1" src={AncasterOneProj1} alt="kitchen renovation" />
+                    <img loading="lazy" className="ancasterproject1__image--2" src={AncasterOneProj2} alt="living room renovation" />
                 </section>
                 <section className="ancasterproject1__imageparent2">
-                    <img className="ancasterproject1__image--3" src={AncasterOneProj3} alt="walk-in closet inside building" />
-                    <img className="ancasterproject1__image--4" src={AncasterOneProj4} alt="walk-in closet inside remodeling" />
+                    <img loading="lazy" className="ancasterproject1__image--3" src={AncasterOneProj3} alt="walk-in closet inside building" />
+                    <img loading="lazy" className="ancasterproject1__image--4" src={AncasterOneProj4} alt="walk-in closet inside remodeling" />
                 </section>
                 <section className="ancasterproject1__imageparent3">
-                    <img className="ancasterproject1__image--5" src={AncasterOneProj5} alt="vinyl flooring" />
-                    <img className="ancasterproject1__image--6" src={AncasterOneProj6} alt="tiling floor" />
+                    <img loading="lazy" className="ancasterproject1__image--5" src={AncasterOneProj5} alt="vinyl flooring" />
+                    <img loading="lazy" className="ancasterproject1__image--6" src={AncasterOneProj6} alt="tiling floor" />
                 </section>
                 <section className="ancasterproject1__imageparent4">
-                    <img className="ancasterproject1__image--7" src={AncasterOneProj7} alt="bathroom renovation" />
-                    <img className="ancasterproject1__image--8" src={AncasterOneProj8} alt="living room renovation" />
+                    <img loading="lazy" className="ancasterproject1__image--7" src={AncasterOneProj7} alt="bathroom renovation" />
+                    <img loading="lazy" className="ancasterproject1__image--8" src={AncasterOneProj8} alt="living room renovation" />
                 </section>
                 <section className="ancasterproject1__imageparent5">
-                    <img className="ancasterproject1__image--9" src={AncasterOneProj9} alt="bathroom renovation" />
-                    <img className="ancasterproject1__image--10" src={AncasterOneProj10} alt="bathroom renovation" />
+                    <img loading="lazy" className="ancasterproject1__image--9" src={AncasterOneProj9} alt="bathroom renovation" />
+                    <img loading="lazy" className="ancasterproject1__image--10" src={AncasterOneProj10} alt="bathroom renovation" />
                 </section>
                 <section className="ancasterproject1__imageparent6">
-                    <img className="ancasterproject1__image--11" src={AncasterOneProj11} alt="potlight installation" />
-                    <img className="ancasterproject1__image--12" src={AncasterOneProj12} alt="painting and flooring" />
+                    <img loading="lazy" className="ancasterproject1__image--11" src={AncasterOneProj11} alt="potlight installation" />
+                    <img loading="lazy" className="ancasterproject1__image--12" src={AncasterOneProj12} alt="painting and flooring" />
                 </section>
                 <section className="ancasterproject1__imageparent7">
-                    <img className="ancasterproject1__image--13" src={AncasterOneProj13} alt="flooring services" />
-                    <img className="ancasterproject1__image--14" src={AncasterOneProj14} alt="fireplace makeover & remodeling" />
+                    <img loading="lazy" className="ancasterproject1__image--13" src={AncasterOneProj13} alt="flooring services" />
+                    <img loading="lazy" className="ancasterproject1__image--14" src={AncasterOneProj14} alt="fireplace makeover & remodeling" />
                 </section>
             </section>
         </main>

@@ -10,12 +10,12 @@ export default function MississaugaTwoProjPage(){
             <h1 className="mississaugaproject2__maintitle">Mississauga Project No. 2</h1>
             <section className="mississaugaproject2__imageparent">
                 <section className="mississaugaproject2__imageparent1">
-                    <img className="mississaugaproject2__image--1" src={MississaugaTwoProj1} alt="kitchen renovation" />
-                    <img className="mississaugaproject2__image--2" src={MississaugaTwoProj2} alt="living room renovation" />
+                    <img loading="lazy" className="mississaugaproject2__image--1" src={MississaugaTwoProj1} alt="kitchen renovation" />
+                    <img loading="lazy" className="mississaugaproject2__image--2" src={MississaugaTwoProj2} alt="living room renovation" />
                 </section>
                 <section className="mississaugaproject2__imageparent2">
-                    <img className="mississaugaproject2__image--3" src={MississaugaTwoProj3} alt="walk-in closet inside building" />
-                    <img className="mississaugaproject2__image--4" src={MississaugaTwoProj4} alt="walk-in closet inside remodeling" />
+                    <img loading="lazy" className="mississaugaproject2__image--3" src={MississaugaTwoProj3} alt="walk-in closet inside building" />
+                    <img loading="lazy" className="mississaugaproject2__image--4" src={MississaugaTwoProj4} alt="walk-in closet inside remodeling" />
                 </section>
             </section>
         </main>
